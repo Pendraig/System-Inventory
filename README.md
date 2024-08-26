@@ -1,6 +1,6 @@
 I'm a support analyst\help desk technician by trade.
 
-I use this script as part of my diagnostic process to streamline information gathering, minimize redundant communications, and enhance case note documentation. 
+I use this script, System Inventory - Code.txt, as part of my diagnostic process to streamline information gathering, minimize redundant communications, and enhance case note documentation. 
 It saves a lot of time by eliminating guesswork about system architecture and reducing unnecessary communications to obtain details I should have had initially.
 
 The script extracts, formats, and writes the following data elements into a text file named ‘System Inventory.txt’ saved in the logged-on user’s Downloads folder:
