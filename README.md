@@ -1,4 +1,4 @@
-This script will extract, format, and write the following data elements into a text file named ‘System Inventory - <Computer Name>.txt’ saved in the user's Downloads folder:
+This script will extract, format, and write the following data elements into a text file named ‘System Inventory - ComputerName.txt’ saved in the user's Downloads folder:
 
 * OS Details
 * OEM Serial Number
