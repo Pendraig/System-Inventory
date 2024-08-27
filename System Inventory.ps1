@@ -428,7 +428,7 @@ $SystemInventory += "# Updates & Hotfixes", $UpdateHistory | Out-String
 # Save & Display Results
 
 Clear-Host
-$FileName = Join-Path $Env:USERPROFILE "Downloads\System Inventory - $($Env:COMPUTERNAME).txt"
-$SystemInventory | Out-File -FilePath $FileName -Encoding ascii
-Get-Content -Path $FileName
-Write-Host "Hard copy saved as" $FileName; Write-Host
+$OutputFile = Join-Path $Env:USERPROFILE "Downloads\System Inventory - $($Env:COMPUTERNAME).txt"
+$SystemInventory | Out-File -FilePath $OutputFile -Encoding ascii
+Get-Content -Path $OutputFile
+Write-Host "Hard copy saved as" $OutputFile; Write-Host
