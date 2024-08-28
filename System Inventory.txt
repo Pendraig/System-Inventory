@@ -429,7 +429,6 @@ $SystemInventory += "# Updates & Hotfixes", $UpdateHistory | Out-String
 
 # Save & Display Results
 
-Clear-Host
 $OutputFile = Join-Path $Env:USERPROFILE "Downloads\System Inventory - $($Env:COMPUTERNAME).txt"
 $SystemInventory | Out-File -FilePath $OutputFile -Encoding ascii
 Get-Content -Path $OutputFile
