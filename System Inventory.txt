@@ -1,17 +1,17 @@
 <# 
 
-# Ownership:
+Ownership:
 
 This script is the property of William John (Bill) Hamill. Unauthorized copying, distribution, or use of this script is prohibited.
 
-# Synopsis:
+Synopsis:
 
 Collects detailed system inventory information, including GPU properties, storage capacity, Windows features, Server Roles, network adapters, 
 ISP details, antivirus details, PowerShell & .NET Framework versions, browser URL associations, critical/error events, and updates/hotfixes.
 Designed to be shared as 'System Inventory.txt' and run in PowerShell ISE using the instructions below.
 Functional within PowerShell or VS Code Console when saved as a .ps1 file (e.g., System Inventory.ps1).
 
-# Instructions:
+Instructions:
 
 1) Download this text file | Open with Notepad.
 2) Search for Windows PowerShell ISE | Right-click (Run as Administrator).
@@ -23,7 +23,7 @@ Functional within PowerShell or VS Code Console when saved as a .ps1 file (e.g.,
 5) PowerShell ISE | Script Pane | Control + V to paste the copied text from Notepad.
 6) PowerShell ISE | File | Run. The results will be displayed on the screen and saved to your Downloads folder as "System Inventory - <ComputerName>.txt".
 
-# Disclaimer:
+Disclaimer:
 
 This script is provided "as is," without warranty of any kind. Use at your own risk. The author or distributor shall not be held liable 
 for any damage or issues arising from the use of this script.
