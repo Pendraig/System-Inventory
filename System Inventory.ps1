@@ -324,7 +324,7 @@ function Get-WindowsUpdateHistory {
     }
 }
 
-# Progress Bar Helper Function
+# Update Progress Bar
 
 function Update-Progress {
     param (
