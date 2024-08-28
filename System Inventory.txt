@@ -49,7 +49,7 @@ function Disable-ExecutionPolicy {
 
 # Hide the script pane in PowerShell ISE by simulating 'Ctrl + R' key press and clear the console screen
 
-function Hide-ScriptPane {
+function Hide-ISEScriptPane {
     if ($host.Name -eq 'Windows PowerShell ISE Host') {
         Add-Type -AssemblyName System.Windows.Forms
         [System.Windows.Forms.SendKeys]::SendWait("^r")
@@ -340,7 +340,7 @@ function Update-Progress {
 
 # Verify elevation, configure environment
 
-Confirm-ElevationStatus; Disable-ExecutionPolicy; Hide-ScriptPane
+Confirm-ElevationStatus; Disable-ExecutionPolicy; Hide-ISEScriptPane
 
 # Current Date
 
