@@ -284,9 +284,9 @@ function Get-CriticalErrorEvents {
     }
     catch {
         if ($_.Exception.Message -match "No events were found that match the specified selection criteria") {
-            Write-Output $NewLine
+            # Write-Output $NewLine
             Write-Output "No Critical or Error events raised over the past 24 hours."
-            Write-Output $NewLine
+            # Write-Output $NewLine
         }
         else {
             throw "An error occurred while retrieving the event logs: $($_.Exception.Message)"
