@@ -2,6 +2,7 @@ This script will extract, format, and write the following data elements into a t
 
 * OS Details
 * OEM Serial Number
+* Windows Product Key
 * GPU specs
 * Storage Capacity
 * Optional Windows Features or Server Roles (contingent upon platform)
