@@ -32,7 +32,7 @@ for any damage or issues arising from the use of this script.
 
 # Define Error Handling, Line Breaks, Initialize Output File & Progress Bar
 
-$ErrorActionPreference = "Stop"; $NewLine = "`n"; $SystemInventory = @(); $Global:TaskCount = 0; $Global:TotalTasks = 13
+$ErrorActionPreference = "Stop"; $NewLine = "`n"; $SystemInventory = @(); $Global:TaskCount = 0; $Global:TotalTasks = 14
 
 # Check elevation status, halt if not running as admin.
 
@@ -431,5 +431,6 @@ $SystemInventory += "# Updates & Hotfixes", $UpdateHistory | Out-String
 
 $OutputFile = Join-Path $Env:USERPROFILE "Downloads\System Inventory - $($Env:COMPUTERNAME).txt"
 $SystemInventory | Out-File -FilePath $OutputFile -Encoding ascii
+Update-Progress -Activity "Gathering system inventory" -Status "Saving Results" -PercentComplete (($TaskCount / $TotalTasks) * 100) 
 Get-Content -Path $OutputFile
 Write-Host "Hard copy saved as" $OutputFile; Write-Host
