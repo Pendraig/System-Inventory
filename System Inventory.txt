@@ -104,31 +104,13 @@ function Get-WindowsProductKey {
         }
         
         $DigitalID = (Get-ItemPropertyValue 'HKLM:Software\Microsoft\Windows NT\CurrentVersion' -Name 'DigitalProductId')
-        $Name = (Get-ItemPropertyValue 'HKLM:Software\Microsoft\Windows NT\CurrentVersion' -Name 'ProductName')
-        $Build = (Get-ItemPropertyValue 'HKLM:Software\Microsoft\Windows NT\CurrentVersion' -Name 'CurrentBuild')
-        $Major = (Get-ItemPropertyValue 'HKLM:Software\Microsoft\Windows NT\CurrentVersion' -Name 'CurrentMajorVersionNumber')
-        $Minor = (Get-ItemPropertyValue 'HKLM:Software\Microsoft\Windows NT\CurrentVersion' -Name 'CurrentMinorVersionNumber')
-        $Owner = (Get-ItemPropertyValue 'HKLM:Software\Microsoft\Windows NT\CurrentVersion' -Name 'RegisteredOwner')
-        $Install = (Get-ItemPropertyValue 'HKLM:Software\Microsoft\Windows NT\CurrentVersion' -Name 'InstallTime'); $Install = [datetime]::FromFileTime($Install)  
-        $Type = (Get-ItemPropertyValue 'HKLM:System\CurrentControlSet\Control\Session Manager\Environment\' -Name 'PROCESSOR_ARCHITECTURE')
-        if ($Type -eq 'x86') { $Type = '32-bit Operating System' } else { $Type = '64-bit Operating System' }
-        $ProductID = (Get-ItemPropertyValue 'HKLM:Software\Microsoft\Windows NT\CurrentVersion' -Name 'ProductId')
-        $ProductKey = Get-OSDigitalID $DigitalID
-    
-        $Results = New-Object -Type PSObject -Property @{
-            'OS Name'          = $Name + ' Build ' + $Build + '.' + $Major + '.' + $Minor
-            'OS Type'          = $Type
-            'Registered Owner' = $Owner
-            'Install Date'     = $Install
-            'Product ID'       = $ProductID
-            'Product Key'      = $ProductKey
-        }
-        $Results        
+        $ProductKey = Get-OSDigitalID $DigitalID    
+        [PSCustomObject]@{ 'Product Key' = $ProductKey }   
     }
     catch {
         throw "An error occurred retrieving product key information: $($_.Exception.Message)"
     }
-} 
+}
 
 # Graphics Card Details
 
