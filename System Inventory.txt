@@ -284,9 +284,9 @@ function Get-CriticalErrorEvents {
     }
     catch {
         if ($_.Exception.Message -match "No events were found that match the specified selection criteria") {
-            # Write-Output $NewLine
+          #  Write-Output $NewLine
             Write-Output "No Critical or Error events raised over the past 24 hours."
-            # Write-Output $NewLine
+          #  Write-Output $NewLine
         }
         else {
             throw "An error occurred while retrieving the event logs: $($_.Exception.Message)"
@@ -351,80 +351,80 @@ $SystemInventory = "# Current Date", $NewLine, $TimeStamp, $NewLine | Out-String
 
 # Detailed System Information
 
-Update-Progress -Activity "Gathering system inventory" -Status "Detailed Operating System Information" -PercentComplete (($TaskCount / $TotalTasks) * 100)
 $OS = systeminfo.exe
+Update-Progress -Activity "Gathering system inventory" -Status "Detailed Operating System Information" -PercentComplete (($TaskCount / $TotalTasks) * 100)
 $SystemInventory += "# Operating System", $OS, $NewLine | Out-String 
 
 # OEM Identifier
 
-Update-Progress -Activity "Gathering system inventory" -Status "OEM Identifier\Serial Number\Service Tag" -PercentComplete (($TaskCount / $TotalTasks) * 100)
 $OemUniqueId = Get-CimInstance -ClassName Win32_Bios | Select-Object SerialNumber
+Update-Progress -Activity "Gathering system inventory" -Status "OEM Identifier\Serial Number\Service Tag" -PercentComplete (($TaskCount / $TotalTasks) * 100)
 $SystemInventory += "# OEM Identifier", $OemUniqueId | Out-String 
 
 # Graphics Card Details
 
-Update-Progress -Activity "Gathering system inventory" -Status "Graphics Card Details" -PercentComplete (($TaskCount / $TotalTasks) * 100)
 $GraphicCards = Get-GpuProperties | Sort-Object 'Video Ram' -Descending
+Update-Progress -Activity "Gathering system inventory" -Status "Graphics Card Details" -PercentComplete (($TaskCount / $TotalTasks) * 100)
 $SystemInventory += "# Graphic Cards", $GraphicCards | Out-String
 
 # Storage Capacity
 
-Update-Progress -Activity "Gathering system inventory" -Status "Storage Capacity" -PercentComplete (($TaskCount / $TotalTasks) * 100)
 $Storage = Get-FreeSpace | Format-Table -AutoSize
+Update-Progress -Activity "Gathering system inventory" -Status "Storage Capacity" -PercentComplete (($TaskCount / $TotalTasks) * 100)
 $SystemInventory += "# Storage Capacity", $Storage | Out-String
 
 # Server Roles\Optional Windows Features
 
-Update-Progress -Activity "Gathering system inventory" -Status "Server Roles\Optional Windows Features" -PercentComplete (($TaskCount / $TotalTasks) * 100)
 $Results = Get-RolesAndFeatures
+Update-Progress -Activity "Gathering system inventory" -Status "Server Roles\Optional Windows Features" -PercentComplete (($TaskCount / $TotalTasks) * 100)
 $SystemInventory += $Results.FeatureLabel, $Results.RolesAndFeatures | Out-String
 
 # Network Adapters & Mac Addresses 
 
-Update-Progress -Activity "Gathering system inventory" -Status "Network Adapters & Mac Addresses" -PercentComplete (($TaskCount / $TotalTasks) * 100)
 $NetAdapters = Get-NetAdapter | Format-Table -AutoSize
+Update-Progress -Activity "Gathering system inventory" -Status "Network Adapters & Mac Addresses" -PercentComplete (($TaskCount / $TotalTasks) * 100)
 $SystemInventory += "# Network Adapters & Mac Addresses", $NetAdapters | Out-String
 
 # ISP Details & External IP Addresses
 
-Update-Progress -Activity "Gathering system inventory" -Status "ISP Details & External IP Addresses" -PercentComplete (($TaskCount / $TotalTasks) * 100)
 $ISPDetails = Get-ISPDetails
+Update-Progress -Activity "Gathering system inventory" -Status "ISP Details & External IP Addresses" -PercentComplete (($TaskCount / $TotalTasks) * 100)
 $SystemInventory += "# ISP Details & External IP Addresses", $ISPDetails.IPv4, $ISPDetails.IPv6 | Out-String
 
 # Security Posture - Antivirus\Antimalware Details
 
-Update-Progress -Activity "Gathering system inventory" -Status "Security Posture - Antivirus\Antimalware Details" -PercentComplete (($TaskCount / $TotalTasks) * 100)
 $AntiVirus = Get-AntiVirus
+Update-Progress -Activity "Gathering system inventory" -Status "Security Posture - Antivirus\Antimalware Details" -PercentComplete (($TaskCount / $TotalTasks) * 100)
 $SystemInventory += "# Antivirus Details", $AntiVirus | Out-String
 
 # PowerShell 
 
-Update-Progress -Activity "Gathering system inventory" -Status "PowerShell Details" -PercentComplete (($TaskCount / $TotalTasks) * 100)
 $PoSh = $PSVersionTable.PSVersion 
+Update-Progress -Activity "Gathering system inventory" -Status "PowerShell Details" -PercentComplete (($TaskCount / $TotalTasks) * 100)
 $SystemInventory += "# PowerShell", $PoSh | Out-String
 
 # .Net Properties
 
-Update-Progress -Activity "Gathering system inventory" -Status ".NET Properties" -PercentComplete (($TaskCount / $TotalTasks) * 100)
 $NetFrmWrk = Get-DotNetProperties
+Update-Progress -Activity "Gathering system inventory" -Status ".NET Properties" -PercentComplete (($TaskCount / $TotalTasks) * 100)
 $SystemInventory += "# .Net Framework", $NetFrmWrk | Out-String
 
 # Browswer URL Associations
 
-Update-Progress -Activity "Gathering system inventory" -Status "Browswer URL Associations" -PercentComplete (($TaskCount / $TotalTasks) * 100)
 $BrowserURLs = Get-BrowserURL 
+Update-Progress -Activity "Gathering system inventory" -Status "Browswer URL Associations" -PercentComplete (($TaskCount / $TotalTasks) * 100)
 $SystemInventory += "# Browser URL Associations", $BrowserURLs | Out-String
 
 # Event Log Activity
 
-Update-Progress -Activity "Gathering system inventory" -Status "Event Log Activity" -PercentComplete (($TaskCount / $TotalTasks) * 100)
 $EventLogActivty = Get-CriticalErrorEvents | Format-Table -AutoSize -Wrap
+Update-Progress -Activity "Gathering system inventory" -Status "Event Log Activity" -PercentComplete (($TaskCount / $TotalTasks) * 100)
 $SystemInventory += "# Event Log Activity", $EventLogActivty | Out-String
 
 # Updates & Hotfixes 
 
-Update-Progress -Activity "Gathering system inventory" -Status "Updates & Hotfixes" -PercentComplete (($TaskCount / $TotalTasks) * 100)  
 $UpdateHistory = Get-WindowsUpdateHistory | Select-Object "KB Number", Installed, Title | Sort-Object Installed -Descending 
+Update-Progress -Activity "Gathering system inventory" -Status "Updates & Hotfixes" -PercentComplete (($TaskCount / $TotalTasks) * 100)  
 $SystemInventory += "# Updates & Hotfixes", $UpdateHistory | Out-String
 
 # Save & Display Results
