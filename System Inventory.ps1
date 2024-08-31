@@ -1,4 +1,4 @@
-<# 
+<#
 
 Ownership:
 
@@ -6,7 +6,7 @@ This script is the property of William John (Bill) Hamill. Unauthorized copying,
 
 Synopsis:
 
-Collects detailed system inventory information, including GPU properties, storage capacity, Windows features, Server Roles, network adapters, 
+Collects detailed system inventory information, including GPU properties, storage capacity, Windows features, Server Roles, network adapters,
 ISP details, antivirus details, PowerShell & .NET Framework versions, browser URL associations, critical/error events, and updates/hotfixes.
 Designed to be shared as 'System Inventory.txt' and run in PowerShell ISE using the instructions below.
 Functional within PowerShell or VS Code Console when saved as a .ps1 file (e.g., System Inventory.ps1).
@@ -19,13 +19,13 @@ Instructions:
     Note: This script *must* be run as an administrator to work!
 
 3) PowerShell ISE | View | Show Script Pane
-4) Notepad | Control + A to select all text, then Control + C to copy it. 
+4) Notepad | Control + A to select all text, then Control + C to copy it.
 5) PowerShell ISE | Script Pane | Control + V to paste the copied text from Notepad.
 6) PowerShell ISE | File | Run. The results will be displayed on the screen and saved to your Downloads folder as "System Inventory - <ComputerName>.txt".
 
 Disclaimer:
 
-This script is provided "as is," without warranty of any kind. Use at your own risk. The author or distributor shall not be held liable 
+This script is provided "as is," without warranty of any kind. Use at your own risk. The author or distributor shall not be held liable
 for any damage or issues arising from the use of this script.
 
 #>
@@ -71,21 +71,17 @@ function Get-WindowsProductKey {
             $Key[66] = ($Key[66] -bAND $HF7) -bOR (($isWin8 -bAND 2) * 4)
             $i = 24
             [String]$Chars = 'BCDFGHJKMPQRTVWXY2346789'	
-            do {
-                $Current = 0 
-                $j = 14
-                do {
-                    $Current = $Current * 256    
+            for ($i = 24; $i -ge 0; $i--) {
+                $Current = 0
+                for ($j = 14; $j -ge 0; $j--) {
+                    $Current = $Current * 256
                     $Current = $Key[$j + $KeyOffset] + $Current
                     $Key[$j + $KeyOffset] = [math]::Floor([double]($Current / 24))
                     $Current = $Current % 24
-                    $j = $j - 1 
-                } while ($j -ge 0)
-                $i = $i - 1
+                }
                 $KeyOutput = $Chars.SubString($Current, 1) + $KeyOutput
                 $Last = $Current
-            } while ($i -ge 0)
-            
+            }
             $KeyPart1 = $KeyOutput.SubString(1, $Last)
             $KeyPart2 = $KeyOutput.SubString(1, $KeyOutput.Length - 1)
             if ($Last -eq 0) {
@@ -223,7 +219,7 @@ function Get-DotNetProperties {
         # Combine Results
         $combinedResults = @(); $combinedResults += $netFrameworkVersions; $combinedResults += $dotNetCoreVersions
             
-        if ($combinedResults) { return $combinedResults } else { Write-Output "No .NET versions found on this machine." }
+        if ($combinedResults) { return $combinedResults } else { Write-Host "No .NET versions found on this machine." }
     }
     catch {
         throw "An error occurred while enumerating .NET properties: $($_.Exception.Message)"
