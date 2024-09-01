@@ -12,11 +12,3 @@ This script will extract, format, and write the following data elements into a t
 * Browser URL associations - 'What did you say your default browser was?'
 * Critical & Error events over the past 24 hours
 * Updates & Hotfixes
-
-How to use the script:
-
-1) Share the script with the client
-2) Walk them through running the script
-3) Retrieve the results (if remotely assisting) or have the client send the System Inventory.txt file via email
-4) Post the client's system inventory as an internal case note in the ITSM/CRM platform (SalesForce, ServiceNow, Remedy, etc.)
-5) Diagnose, reproduce, and fix the client's issue
