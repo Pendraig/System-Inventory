@@ -32,7 +32,7 @@ for any damage or issues arising from the use of this script.
 
 # Define Error Handling, Line Breaks, Initialize Output File & Progress Bar
 
-$ErrorActionPreference = "Stop"; $NewLine = "`n"; $SystemInventory = @(); $Global:TaskCount = 0; $Global:TotalTasks = 15
+$ErrorActionPreference = "Stop"; $NewLine = [System.Environment]::NewLine; $SystemInventory = @(); $Script:TaskCount = 0; $Script:TotalTasks = 15
 
 # Check elevation status, halt if not running as admin.
 
