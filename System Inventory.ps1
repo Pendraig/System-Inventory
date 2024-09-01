@@ -34,6 +34,7 @@ for any damage or issues arising from the use of this script.
 
 $ErrorActionPreference = "Stop"; $NewLine = [System.Environment]::NewLine; $SystemInventory = @(); $Script:TaskCount = 0; $Script:TotalTasks = 15
 
+
 # Check elevation status, halt if not running as admin.
 
 function Confirm-ElevationStatus {    
@@ -65,12 +66,17 @@ function Get-WindowsProductKey {
     try {
         function Get-OSDigitalID($Key) {
 
+            # Initialize variables
+
             $KeyOffset = 52 
             $isWin8 = [Int]($Key[66] / 6) -bAND 1
             $HF7 = 0xF7
             $Key[66] = ($Key[66] -bAND $HF7) -bOR (($isWin8 -bAND 2) * 4)
             $i = 24
-            [String]$Chars = 'BCDFGHJKMPQRTVWXY2346789'	
+            [String]$Chars = 'BCDFGHJKMPQRTVWXY2346789'
+            
+            # Decode Product Key
+            	
             for ($i = 24; $i -ge 0; $i--) {
                 $Current = 0
                 for ($j = 14; $j -ge 0; $j--) {
@@ -82,6 +88,9 @@ function Get-WindowsProductKey {
                 $KeyOutput = $Chars.SubString($Current, 1) + $KeyOutput
                 $Last = $Current
             }
+
+            # Format Product Key
+
             $KeyPart1 = $KeyOutput.SubString(1, $Last)
             $KeyPart2 = $KeyOutput.SubString(1, $KeyOutput.Length - 1)
             if ($Last -eq 0) {
@@ -97,8 +106,10 @@ function Get-WindowsProductKey {
             $e = $KeyOutput.SubString(20, 5)
             $KeyProduct = $a + '-' + $b + '-' + $c + '-' + $d + '-' + $e
             $KeyProduct 
-        }
+        }     
         
+        # Output Results
+           
         $DigitalID = (Get-ItemPropertyValue 'HKLM:Software\Microsoft\Windows NT\CurrentVersion' -Name 'DigitalProductId')
         $ProductKey = Get-OSDigitalID $DigitalID    
         [PSCustomObject]@{ 'Product Key' = $ProductKey }   
