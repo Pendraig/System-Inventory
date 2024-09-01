@@ -34,7 +34,6 @@ for any damage or issues arising from the use of this script.
 
 $ErrorActionPreference = "Stop"; $NewLine = [System.Environment]::NewLine; $SystemInventory = @(); $Script:TaskCount = 0; $Script:TotalTasks = 15
 
-
 # Check elevation status, halt if not running as admin.
 
 function Confirm-ElevationStatus {    
