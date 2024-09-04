@@ -320,20 +320,47 @@ function Get-AntiVirus {
     $AntiVirusDetails
 }
 
-# Browser URL Associations
+# Default Browser & URL Associations
 
-function Get-BrowserURL {
+function Get-BrowserInfo {
     try {
+        
+        # Get the default browser from the registry
+        
+        $browserKey = "HKCU:\Software\Microsoft\Windows\Shell\Associations\UrlAssociations\http\UserChoice"
+        $browserProgId = (Get-ItemProperty -Path $browserKey).ProgId
+
+        # Map the ProgId to a friendly browser name
+        
+        switch ($browserProgId) {
+            "IE.HTTP"    { $browserName = "Internet Explorer" }
+            "FirefoxURL" { $browserName = "Mozilla Firefox" }
+            "ChromeHTML" { $browserName = "Google Chrome" }
+            "MSEdgeHTM"  { $browserName = "Microsoft Edge" }
+            default      { $browserName = "Unknown" }
+        }
+
+        # Get browser URL associations
+        
         $AppHash = @{}
         $RegPath = "HKCU:\Software\Microsoft\Windows\Shell\Associations\UrlAssociations"
         Get-ChildItem "$RegPath\*\UserChoice\" -ErrorAction SilentlyContinue |
             ForEach-Object {
                 $AppHash.Add((Get-Item $_.PSParentPath).PSChildName, $_.GetValue('progId'))
             }
-        if ( $AppHash.Count -gt 0 ) { $AppHash.GetEnumerator() | Sort-Object Value, Name } 
+
+        # Output formatted results
+        
+        $output = @()
+        $output += [PSCustomObject]@{ Name = "Default Browser"; Value = $browserName }
+        $AppHash.GetEnumerator() | Sort-Object Value, Name | ForEach-Object {
+            $output += [PSCustomObject]@{ Name = $_.Key; Value = $_.Value }
+        }
+
+        return $output
     }
     catch {
-        throw "An error occurred while retrieving browser URL associations: $($_.Exception.Message)"
+        throw "An error occurred while retrieving browser information: $($_.Exception.Message)"
     }
 }
 
@@ -483,11 +510,11 @@ $NetFrmWrk = Get-DotNetProperties
 Update-Progress -Activity "Gathering system inventory" -Status ".NET Properties" -PercentComplete (($TaskCount / $TotalTasks) * 100)
 $SystemInventory += "# .Net Framework", $NetFrmWrk | Out-String
 
-# Browswer URL Associations
+# Default Browswer & URL Associations
 
-$BrowserURLs = Get-BrowserURL 
-Update-Progress -Activity "Gathering system inventory" -Status "Browswer URL Associations" -PercentComplete (($TaskCount / $TotalTasks) * 100)
-$SystemInventory += "# Browser URL Associations", $BrowserURLs | Out-String
+$BrowserInfo = Get-BrowserInfo 
+Update-Progress -Activity "Gathering system inventory" -Status "Default Browswer & URL Associations" -PercentComplete (($TaskCount / $TotalTasks) * 100)
+$SystemInventory += "# Default Browser & URL Associations", $BrowserInfo | Out-String
 
 # Event Log Activity
 
