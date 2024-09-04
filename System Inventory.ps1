@@ -166,11 +166,11 @@ function Get-RolesAndFeatures {
 
         if ($CimSysType -eq 1) {
             $FeatureLabel = "# Windows Client - Active Optional Features"  
-            $RolesAndFeatures = Get-WindowsOptionalFeature -Online | Where-Object State -EQ 'Enabled' | Select-Object FeatureName | Sort-Object FeatureName          
+            $RolesAndFeatures = Get-WindowsOptionalFeature -Online | Where-Object State -eq 'Enabled' | Select-Object FeatureName | Sort-Object FeatureName          
         }
         else { 
             $FeatureLabel = "# Windows Server - Installed Server Roles"
-            $RolesAndFeatures = Get-WindowsFeature | Where-Object InstallState -EQ 'Installed' | Select-Object DisplayName             
+            $RolesAndFeatures = Get-WindowsFeature | Where-Object InstallState -eq 'Installed' | Select-Object DisplayName             
         }
         return [PSCustomObject]@{
             FeatureLabel     = $FeatureLabel
