@@ -155,30 +155,31 @@ Full                         4.8.1    533320
 Microsoft.NETCore.App        6.0.33         
 Microsoft.WindowsDesktop.App 6.0.33         
 
-# Browser URL Associations
+# Default Browser & URL Associations
 
-Name                           Value                                                                                                                                                                                                                             
-----                           -----                                                                                                                                                                                                                             
-callto                                                                                                                                                                                                                                                           
-webcal                         AppX4vt5c8cbxd42btbp6br6zs9v25a1kh5j                                                                                                                                                                                              
-mswindowsvideo                 AppX6w6n4f8xch1s3vzwf3af6bfe88qhxbza                                                                                                                                                                                              
-mailto                         AppXbx2ce4vcxjdhff3d1ms66qqzk12zn827                                                                                                                                                                                              
-ms-screenclip                  AppXfeq5vwnakrw6cy02kzhq8ekhhsremh62                                                                                                                                                                                              
-bingmaps                       AppXp9gkwccvk6fa6yyfq3tmsk8ws2nprk1p                                                                                                                                                                                              
-mswindowsmusic                 AppXtggqqtcfspt6ks3fjzyfppwc05yxwtwy                                                                                                                                                                                              
-ftp                            ChromeHTML                                                                                                                                                                                                                        
-http                           ChromeHTML                                                                                                                                                                                                                        
-https                          ChromeHTML                                                                                                                                                                                                                        
-mms                            ChromeHTML                                                                                                                                                                                                                        
-sms                            ChromeHTML                                                                                                                                                                                                                        
-tel                            ChromeHTML                                                                                                                                                                                                                        
-microsoft-edge                 MSEdgeHTM                                                                                                                                                                                                                         
-microsoft-edge-holographic     MSEdgeHTM                                                                                                                                                                                                                         
-ms-xbl-3d8b930f                MSEdgeHTM                                                                                                                                                                                                                         
-read                           MSEdgeHTM                                                                                                                                                                                                                         
-sip                            ZoomMeeting.sip                                                                                                                                                                                                                   
-IM                             ZoomPbx.im                                                                                                                                                                                                                        
-ZoomPhoneCall                  ZoomPbx.zoomphonecall                                                                                                                                                                                                             
+Name                       Value                               
+----                       -----                               
+Default Browser            Google Chrome                       
+callto                                                         
+webcal                     AppX4vt5c8cbxd42btbp6br6zs9v25a1kh5j
+mswindowsvideo             AppX6w6n4f8xch1s3vzwf3af6bfe88qhxbza
+mailto                     AppXbx2ce4vcxjdhff3d1ms66qqzk12zn827
+ms-screenclip              AppXfeq5vwnakrw6cy02kzhq8ekhhsremh62
+bingmaps                   AppXp9gkwccvk6fa6yyfq3tmsk8ws2nprk1p
+mswindowsmusic             AppXtggqqtcfspt6ks3fjzyfppwc05yxwtwy
+ftp                        ChromeHTML                          
+http                       ChromeHTML                          
+https                      ChromeHTML                          
+mms                        ChromeHTML                          
+sms                        ChromeHTML                          
+tel                        ChromeHTML                          
+microsoft-edge             MSEdgeHTM                           
+microsoft-edge-holographic MSEdgeHTM                           
+ms-xbl-3d8b930f            MSEdgeHTM                           
+read                       MSEdgeHTM                           
+sip                        ZoomMeeting.sip                     
+IM                         ZoomPbx.im                          
+ZoomPhoneCall              ZoomPbx.zoomphonecall                                                                                                                                                                                                            
 
 # Event Log Activity
 
