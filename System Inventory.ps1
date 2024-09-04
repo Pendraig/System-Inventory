@@ -36,19 +36,24 @@ $ErrorActionPreference = "Stop"; $NewLine = [System.Environment]::NewLine; $Syst
 
 # Check elevation status, halt if not running as admin.
 
-function Confirm-ElevationStatus {    
+function Initialize-Script {
+
+    # Check elevation status
+
     if (-not ([Security.Principal.WindowsPrincipal]::new([Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator))) {
-        Hide-ISEScriptPane; Write-Host "This script must be run as an administrator to work!" -ForegroundColor Red; Write-Host
+        Hide-ISEScriptPane
+        Write-Host "This script must be run as an administrator to work!" -ForegroundColor Red
         exit 1
     }
-}
 
-# Bypass execution policy for the current PowerShell session only. Security will be restored to its previous state once this session is closed.
+    # Bypass execution policy for the current session
 
-function Disable-ExecutionPolicy {
     $ExecutionContext.InvokeCommand.InvokeScript('Set-ExecutionPolicy Bypass -Scope Process')
-}
+    
+    # Hide the script pane in PowerShell ISE
 
+    Hide-ISEScriptPane
+}
 # Hide the script pane in PowerShell ISE by simulating 'Ctrl + R' key press and clear the console screen
 
 function Hide-ISEScriptPane {
@@ -185,6 +190,7 @@ function Get-DotNetProperties {
 
     try {
         # .NET Framework Lookup Table
+
         $Lookup = @{
             378389 = '4.5'
             378675 = '4.5.1'
@@ -208,6 +214,7 @@ function Get-DotNetProperties {
         }
     
         # Retrieve .NET Framework Versions
+
         $netFrameworkVersions = Get-ChildItem 'HKLM:\SOFTWARE\Microsoft\NET Framework Setup\NDP' -Recurse |
             Get-ItemProperty -Name Version, Release -ErrorAction SilentlyContinue |
                 Where-Object { $_.PSChildName -eq "Full" } |
@@ -216,6 +223,7 @@ function Get-DotNetProperties {
                                   Release
     
         # Retrieve .NET Core Versions
+
         $dotNetCoreVersions = & "C:\Program Files\dotnet\dotnet.exe" --list-runtimes |
             ForEach-Object {
                 $parts = $_ -split '\s+'
@@ -227,6 +235,7 @@ function Get-DotNetProperties {
             }
     
         # Combine Results
+
         $combinedResults = @(); $combinedResults += $netFrameworkVersions; $combinedResults += $dotNetCoreVersions
             
         if ($combinedResults) { return $combinedResults } else { Write-Host "No .NET versions found on this machine." }
@@ -401,7 +410,7 @@ function Update-Progress {
 
 # Verify elevation, configure environment
 
-Confirm-ElevationStatus; Disable-ExecutionPolicy; Hide-ISEScriptPane
+Initialize-Script
 
 # Current Date
 
