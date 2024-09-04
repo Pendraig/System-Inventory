@@ -37,12 +37,11 @@ $ErrorActionPreference = "Stop"; $NewLine = [System.Environment]::NewLine; $Syst
 # Check elevation status, halt if not running as admin.
 
 function Initialize-Script {
-
+    
     # Check elevation status
 
     if (-not ([Security.Principal.WindowsPrincipal]::new([Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator))) {
-        Hide-ISEScriptPane
-        Write-Host "This script must be run as an administrator to work!" -ForegroundColor Red
+        Hide-ISEScriptPane; Write-Host "This script must be run as an administrator to work!" -ForegroundColor Red
         exit 1
     }
 
@@ -54,6 +53,7 @@ function Initialize-Script {
 
     Hide-ISEScriptPane
 }
+
 # Hide the script pane in PowerShell ISE by simulating 'Ctrl + R' key press and clear the console screen
 
 function Hide-ISEScriptPane {
