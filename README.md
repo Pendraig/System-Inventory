@@ -9,6 +9,6 @@ This script will extract, format, and write the following data elements into a t
 * ISP Details & External IP Addresses (both IPv4 & IPv6)
 * Antivirus details
 * PowerShell & .NET Framework versions
-* Browser URL associations - 'What did you say your default browser was?'
+* Default Browser & URL associations - 'What did you say your default browser was?'
 * Critical & Error events over the past 24 hours
 * Updates & Hotfixes
