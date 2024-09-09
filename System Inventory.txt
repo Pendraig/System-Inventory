@@ -41,7 +41,7 @@ function Initialize-Script {
     # Check elevation status
 
     if (-not ([Security.Principal.WindowsPrincipal]::new([Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator))) {
-        Hide-ISEScriptPane; Write-Host "This script must be run as an administrator to work!" -ForegroundColor Red
+        Hide-ISEScriptPane; Write-Host "This script must be run as an administrator to work!" -ForegroundColor Red; Write-Host
         exit 1
     }
 
@@ -263,61 +263,66 @@ function Get-ISPDetails {
 
 # Antivirus Details
 
-function Get-AntiVirus {
-
-    # Source:  https://jdhitsolutions.com/blog/powershell/5187/get-antivirus-product-status-with-powershell/
-    
+function Get-SecurityPosture {
     try {
-        $antivirus = Get-CimInstance -Namespace "root\SecurityCenter2" -ClassName "AntiVirusProduct"
+        # Extract data from AntiVirusProduct class
+        # Source\Inspiration:  https://jdhitsolutions.com/blog/powershell/5187/get-antivirus-product-status-with-powershell/
+        $ProtectionLegacy = Get-CimInstance -Namespace "root\SecurityCenter2" -ClassName "AntiVirusProduct" -ErrorAction Stop
     }
     catch {
-        throw "An error occurred while retrieving antivirus information: $($_.Exception.Message)"
+        Write-Error "Failed to retrieve data from AntiVirusProduct class: $($_.Exception.Message)"
         return
     }
 
-    # Decode hexadecimal productState value to derive Enabled & UpToDate values (True or False)
-    
-    Function ConvertTo-Hex {
-        Param([int]$Number)
+    try {
+        # Extract data from ProtectionTechnologyStatus class
+        # Source\Inspiration:  https://jdhitsolutions.com/blog/powershell/6082/searching-for-a-cim-wmi-class-with-powershell/
+        $ProtectionCurrent = Get-CimInstance -Namespace "root\Microsoft\SecurityClient" -ClassName "ProtectionTechnologyStatus" -ErrorAction Stop
+    }
+    catch {
+        Write-Error "Failed to retrieve data from ProtectionTechnologyStatus class: $($_.Exception.Message)"
+        return
+    }
+
+    # Combine and format the data from namespaces and classes listed above into a single array
+    $Results = @()
+    foreach ($LegacyObject in $ProtectionLegacy) {
         try {
-            return '0x{0:x}' -f $Number
+            $AVMostRecentScan = Get-Date -Date $LegacyObject.timestamp -Format "dddd, dd-MMM-yyyy hh:mm:ss tt"
         }
         catch {
-            throw "Failed to convert number to hexadecimal: $($_.Exception.Message)"
-            return $null
+            Write-Error "Failed to parse timestamp for $($LegacyObject.displayName): $($_.Exception.Message)"
+            continue
+        }
+
+        foreach ($CurrentObject in $ProtectionCurrent) {
+            try {
+                $AVDefSigTimeStamp = Get-Date -Date $CurrentObject.AntispywareSignatureUpdateDateTime -Format "dddd, dd-MMM-yyyy hh:mm:ss tt"
+            }
+            catch {
+                Write-Error "Failed to parse AntispywareSignatureUpdateDateTime for $($CurrentObject.Version): $($_.Exception.Message)"
+                continue
+            }
+
+            $Results += [PSCustomObject]@{
+                "Installed Platform"         = $LegacyObject.displayName
+                "Install Path"               = $LegacyObject.pathToSignedReportingExe
+                "Computer"                   = $Env:COMPUTERNAME
+                Version                      = $CurrentObject.Version
+                "AV\Spyware Signature"       = $CurrentObject.AntispywareSignatureVersion              
+                "Latest Definitions Update"  = $AVDefSigTimeStamp
+                "Most Recent Scan"           = $AVMostRecentScan
+                "AntiVirus Enabled"          = $CurrentObject.AntiVirusEnabled
+                "AntiSpyware Enabled"        = $CurrentObject.AntiSpywareEnabled
+                "Behavior Monitor"           = $CurrentObject.BehaviorMonitorEnabled
+                "IE/Outlook AV Protection"   = $CurrentObject.IoavProtectionEnabled
+                "Network Inspection Service" = $CurrentObject.NisEnabled
+                "URL On Access Protection"   = $CurrentObject.OnAccessProtectionEnabled
+                "Realtime Protection"        = $CurrentObject.RtpEnabled
+            }
         }
     }
-    $AntiVirusDetails = $antivirus | ForEach-Object {
-        try {
-            $hx = ConvertTo-Hex $_.ProductState
-            if ($hx -and $hx.Length -ge 5) {
-                $mid = $hx.Substring(3, 2)
-                $Enabled = if ($mid -match "00|01") { $False } else { $True }
-
-                $end = $hx.Substring(5)
-                $UpToDate = if ($end -eq "00") { $True } else { $False }
-            }
-            else {
-                $Enabled = $False
-                $UpToDate = $False
-            }
-
-    # Collect and format results
-
-            [PSCustomObject]@{
-                "Display Name"  = $_.displayName
-                "Install Path"  = $_.pathToSignedReportingExe
-                "Enabled"       = $Enabled
-                "Updated"       = $UpToDate
-                "Latest Scan"   = Get-Date $_.timestamp -Format "dddd, dd-MMM-yyyy hh:mm:ss tt"
-                "Computer"      = $Env:COMPUTERNAME
-            }
-        }
-        catch {
-            throw "Failed to process antivirus product: $($_.Exception.Message)"
-        }
-    }
-    $AntiVirusDetails
+    return $Results
 }
 
 # Default Browser & URL Associations
@@ -334,10 +339,10 @@ function Get-BrowserInfo {
         
         switch ($browserProgId) {
             "IE.HTTP"    { $browserName = "Internet Explorer" }
-            "FirefoxURL" { $browserName = "Mozilla Firefox" }
-            "ChromeHTML" { $browserName = "Google Chrome" }
-            "MSEdgeHTM"  { $browserName = "Microsoft Edge" }
-            default      { $browserName = "Unknown" }
+            "FirefoxURL" { $browserName = "Mozilla Firefox"   }
+            "ChromeHTML" { $browserName = "Google Chrome"     }
+            "MSEdgeHTM"  { $browserName = "Microsoft Edge"    }
+            default      { $browserName = "Unknown"           }   
         }
 
         # Get browser URL associations
@@ -494,7 +499,7 @@ $SystemInventory += "# ISP Details & External IP Addresses", $ISPDetails.IPv4, $
 
 # Security Posture - Antivirus\Antimalware Details
 
-$AntiVirus = Get-AntiVirus
+$AntiVirus = Get-SecurityPosture
 Update-Progress -Activity "Gathering system inventory" -Status "Security Posture - Antivirus\Antimalware Details" -PercentComplete (($TaskCount / $TotalTasks) * 100)
 $SystemInventory += "# Antivirus Details", $AntiVirus | Out-String
 
