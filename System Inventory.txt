@@ -291,7 +291,7 @@ function Get-SecurityPosture {
             $AVMostRecentScan = Get-Date -Date $LegacyObject.timestamp -Format "dddd, dd-MMM-yyyy hh:mm:ss tt"
         }
         catch {
-            Write-Error "Failed to parse timestamp for $($LegacyObject.displayName): $($_.Exception.Message)"
+            Write-Error "Failed to parse most recent scan timestamp for $($LegacyObject.displayName): $($_.Exception.Message)"
             continue
         }
 
@@ -300,7 +300,7 @@ function Get-SecurityPosture {
                 $AVDefSigTimeStamp = Get-Date -Date $CurrentObject.AntispywareSignatureUpdateDateTime -Format "dddd, dd-MMM-yyyy hh:mm:ss tt"
             }
             catch {
-                Write-Error "Failed to parse AntispywareSignatureUpdateDateTime for $($CurrentObject.Version): $($_.Exception.Message)"
+                Write-Error "Failed to parse antispyware ipdate timestamp for $($CurrentObject.Version): $($_.Exception.Message)"
                 continue
             }
 
@@ -373,14 +373,21 @@ function Get-BrowserInfo {
 
 function Get-CriticalErrorEvents {
     try {
+        # Define the time range (last 24 hours)
+
         $startTime = (Get-Date).AddDays(-1)
+
+        # Get Critical and Error events from the System and Application logs
         
         $events = Get-WinEvent -FilterHashtable @{
             LogName   = 'System', 'Application'
             Level     = 1, 2  
             StartTime = $startTime
-        }         
-        $events | Select-Object LevelDisplayName, Id, TimeCreated, ProviderName, Message | Sort-Object LevelDisplayName, ID
+        } 
+        
+        # Output results
+                
+        $events | Select-Object LevelDisplayName, Id, TimeCreated, ProviderName, Message | Sort-Object LevelDisplayName, TimeCreated -Descending
     }
     catch {
         if ($_.Exception.Message -match "No events were found that match the specified selection criteria") {
