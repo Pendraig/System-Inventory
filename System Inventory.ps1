@@ -439,8 +439,8 @@ function Update-Progress {
         [string]$Status
     )
     try {
-        $global:TaskCount++
-        Write-Progress -Activity $Activity -Status $Status -PercentComplete (($global:TaskCount / $global:TotalTasks) * 100)          
+        $Script:TaskCount++
+        Write-Progress -Activity $Activity -Status $Status -PercentComplete (($Script:TaskCount / $Script:TotalTasks) * 100)          
     }
     catch {
         throw "An error occurred while updating progress: $($_.Exception.Message)"
