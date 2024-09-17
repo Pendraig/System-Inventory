@@ -265,8 +265,8 @@ function Get-ISPDetails {
 
 function Get-SecurityPosture {
     try {
-        # Extract data from AntiVirusProduct class
-        # Source\Inspiration:  https://jdhitsolutions.com/blog/powershell/5187/get-antivirus-product-status-with-powershell/
+        # Extract data from AntiVirusProduct class - Source\Inspiration: https://jdhitsolutions.com/blog/powershell/5187/get-antivirus-product-status-with-powershell/ 
+        
         $ProtectionLegacy = Get-CimInstance -Namespace "root\SecurityCenter2" -ClassName "AntiVirusProduct" -ErrorAction Stop
     }
     catch {
@@ -275,8 +275,8 @@ function Get-SecurityPosture {
     }
 
     try {
-        # Extract data from ProtectionTechnologyStatus class
-        # Source\Inspiration:  https://jdhitsolutions.com/blog/powershell/6082/searching-for-a-cim-wmi-class-with-powershell/
+        # Extract data from ProtectionTechnologyStatus class - Source\Inspiration: https://jdhitsolutions.com/blog/powershell/6082/searching-for-a-cim-wmi-class-with-powershell/ 
+         
         $ProtectionCurrent = Get-CimInstance -Namespace "root\Microsoft\SecurityClient" -ClassName "ProtectionTechnologyStatus" -ErrorAction Stop
     }
     catch {
@@ -285,6 +285,7 @@ function Get-SecurityPosture {
     }
 
     # Combine and format the data from namespaces and classes listed above into a single array
+
     $Results = @()
     foreach ($LegacyObject in $ProtectionLegacy) {
         try {
