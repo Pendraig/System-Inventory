@@ -134,12 +134,20 @@ XXXX:XXXX:XXXX:XXXX:XXXX:XXXX:XXXX:XXXX          <-- Redacted for information se
 
 # Antivirus Details
 
-Display Name : Windows Defender
-Install Path : %ProgramFiles%\Windows Defender\MsMpeng.exe
-Enabled      : True
-Updated      : True
-Latest Scan  : Friday, 23-Aug-2024 07:59:14 AM
-Computer     : WHAMILL-W10
+Installed Platform         : Windows Defender
+Install Path               : %ProgramFiles%\Windows Defender\MsMpeng.exe
+Computer                   : WHAMILL-W10
+Version                    : 4.18.24070.5
+AV\Spyware Signature       : 1.419.1.0
+Latest Definitions Update  : Monday, 16-Sep-2024 01:58:52 PM
+Most Recent Scan           : Monday, 16-Sep-2024 04:16:31 PM
+AntiVirus Enabled          : True
+AntiSpyware Enabled        : True
+Behavior Monitor           : True
+IE/Outlook AV Protection   : True
+Network Inspection Service : True
+URL On Access Protection   : True
+Realtime Protection        : True
 
 # PowerShell
 
