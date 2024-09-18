@@ -41,7 +41,7 @@ function Initialize-Script {
     # Check elevation status
 
     if (-not ([Security.Principal.WindowsPrincipal]::new([Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator))) {
-        Hide-ISEScriptPane; Write-Host "This script must be run as an administrator to work!" -ForegroundColor Red; Write-Host
+        Hide-ISEScriptPane; Write-Host; Write-Host "This script must be run as an administrator to work!" -ForegroundColor Red; Write-Host
         exit 1
     }
 
