@@ -133,7 +133,7 @@ function Get-GpuProperties {
                 'Device Name'         = $gpu.Name
                 'Video RAM'           = [Math]::Round($gpu.AdapterRAM / 1MB, 2)
                 'Driver Version'      = $gpu.DriverVersion
-                'Install Date & Time' = $gpu.DriverDate
+                'Install Date & Time' = $gpu.DriverDate.ToString('MM-dd-yyyy hh:mm tt')
             } 
         }
         return $gpuDetails
@@ -419,7 +419,7 @@ function Get-WindowsUpdateHistory {
 
                 $Updates.Add([PSCustomObject]@{            
                         'KB Number'   = [regex]::match($Update.Title, 'KB(\d+)').Value
-                        'Installed'   = $Update.Date
+                        'Installed'   = $Update.Date.ToString('MM-dd-yyyy hh:mm:ss tt')
                         'Title'       = $Update.Title
                         'Description' = $Update.Description
                     }) | Out-Null
