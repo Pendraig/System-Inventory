@@ -76,12 +76,12 @@ XXXXX-XXXXX-XXXXX-XXXXX-XXXXX  <-- Redacted for information security; unique, sy
 
 # Graphic Cards
 
-Device Name                               Video RAM Driver Version Install Date & Time 
------------                               --------- -------------- ------------------- 
-NVIDIA GeForce GTX 1060 with Max-Q Design      4095 31.0.15.3179   4/24/2023 7:00:00 PM
-Intel(R) UHD Graphics 630                      1024 27.20.100.9664 5/31/2021 7:00:00 PM
-DisplayLink USB Device                            0 11.0.2412.0    12/8/2022 6:00:00 PM
-DisplayLink USB Device                            0 11.0.2412.0    12/8/2022 6:00:00 PM
+Device Name                               Video RAM Driver Version Driver Date
+-----------                               --------- -------------- -----------
+NVIDIA GeForce GTX 1060 with Max-Q Design      4095 32.0.15.6109   04-Sep-2024
+Intel(R) UHD Graphics 630                      1024 27.20.100.9664 31-May-2021
+DisplayLink USB Device                            0 11.0.2412.0    08-Dec-2022
+DisplayLink USB Device                            0 11.0.2412.0    08-Dec-2022
 
 # Storage Capacity
 
