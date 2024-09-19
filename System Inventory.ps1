@@ -292,7 +292,7 @@ function Get-SecurityPosture {
             $AVMostRecentScan = Get-Date -Date $LegacyObject.TimeStamp -Format "dd-MMM-yyyy hh:mm:ss tt"
         }
         catch {
-            Write-Error "Failed to parse most recent scan timestamp for $($LegacyObject.displayName): $($_.Exception.Message)"
+            Write-Error "Failed to parse most recent scan timestamp for $($LegacyObject.DisplayName): $($_.Exception.Message)"
             continue
         }
 
@@ -459,92 +459,92 @@ $SystemInventory = "# Current Date", $NewLine, $TimeStamp, $NewLine | Out-String
 
 # Detailed System Information
 
-$OS = systeminfo.exe
 Update-Progress -Activity "Gathering system inventory" -Status "Detailed Operating System Information" -PercentComplete (($TaskCount / $TotalTasks) * 100)
+$OS = systeminfo.exe
 $SystemInventory += "# Operating System", $OS, $NewLine | Out-String 
 
 # OEM Identifier
 
-$OemUniqueId = Get-CimInstance -ClassName win32_bios | Select-Object -Property SerialNumber
 Update-Progress -Activity "Gathering system inventory" -Status "OEM Identifier\Serial Number\Service Tag" -PercentComplete (($TaskCount / $TotalTasks) * 100)
+$OemUniqueId = Get-CimInstance -ClassName win32_bios | Select-Object -Property SerialNumber
 $SystemInventory += "# OEM Identifier", $OemUniqueId | Out-String 
 
 # Windows Product Key
 
-$ProductKey = Get-WindowsProductKey | Select-Object 'Product Key' 
 Update-Progress -Activity "Gathering system inventory" -Status "Windows Product Key" -PercentComplete (($TaskCount / $TotalTasks) * 100)
+$ProductKey = Get-WindowsProductKey | Select-Object 'Product Key' 
 $SystemInventory += "# Windows Product Key", $ProductKey | Out-String 
 
 # Graphics Card Details
 
-$GraphicCards = Get-GpuProperties | Sort-Object 'Video Ram' -Descending
 Update-Progress -Activity "Gathering system inventory" -Status "Graphics Card Details" -PercentComplete (($TaskCount / $TotalTasks) * 100)
+$GraphicCards = Get-GpuProperties | Sort-Object 'Video Ram' -Descending
 $SystemInventory += "# Graphic Cards", $GraphicCards | Out-String
 
 # Storage Capacity
 
-$Storage = Get-FreeSpace | Format-Table -AutoSize
 Update-Progress -Activity "Gathering system inventory" -Status "Storage Capacity" -PercentComplete (($TaskCount / $TotalTasks) * 100)
+$Storage = Get-FreeSpace | Format-Table -AutoSize
 $SystemInventory += "# Storage Capacity", $Storage | Out-String
 
 # Server Roles\Optional Windows Features
 
-$Results = Get-RolesAndFeatures
 Update-Progress -Activity "Gathering system inventory" -Status "Server Roles\Optional Windows Features" -PercentComplete (($TaskCount / $TotalTasks) * 100)
+$Results = Get-RolesAndFeatures
 $SystemInventory += $Results.FeatureLabel, $Results.RolesAndFeatures | Out-String
 
 # Network Adapters & Mac Addresses 
 
-$NetAdapters = Get-NetAdapter | Format-Table -AutoSize
 Update-Progress -Activity "Gathering system inventory" -Status "Network Adapters & Mac Addresses" -PercentComplete (($TaskCount / $TotalTasks) * 100)
+$NetAdapters = Get-NetAdapter | Format-Table -AutoSize
 $SystemInventory += "# Network Adapters & Mac Addresses", $NetAdapters | Out-String
 
 # ISP Details & External IP Addresses
 
-$ISPDetails = Get-ISPDetails
 Update-Progress -Activity "Gathering system inventory" -Status "ISP Details & External IP Addresses" -PercentComplete (($TaskCount / $TotalTasks) * 100)
+$ISPDetails = Get-ISPDetails
 $SystemInventory += "# ISP Details & External IP Addresses", $ISPDetails.IPv4, $ISPDetails.IPv6 | Out-String
 
 # Security Posture - Antivirus\Antimalware Details
 
-$AntiVirus = Get-SecurityPosture
 Update-Progress -Activity "Gathering system inventory" -Status "Security Posture - Antivirus\Antimalware Details" -PercentComplete (($TaskCount / $TotalTasks) * 100)
+$AntiVirus = Get-SecurityPosture
 $SystemInventory += "# Antivirus Details", $AntiVirus | Out-String
 
 # PowerShell 
 
-$PoSh = $PSVersionTable.PSVersion 
 Update-Progress -Activity "Gathering system inventory" -Status "PowerShell Details" -PercentComplete (($TaskCount / $TotalTasks) * 100)
+$PoSh = $PSVersionTable.PSVersion 
 $SystemInventory += "# PowerShell", $PoSh | Out-String
 
 # .Net Properties
 
-$NetFrmWrk = Get-DotNetProperties
 Update-Progress -Activity "Gathering system inventory" -Status ".NET Properties" -PercentComplete (($TaskCount / $TotalTasks) * 100)
+$NetFrmWrk = Get-DotNetProperties
 $SystemInventory += "# .Net Framework", $NetFrmWrk | Out-String
 
 # Default Browswer & URL Associations
 
-$BrowserInfo = Get-BrowserInfo 
 Update-Progress -Activity "Gathering system inventory" -Status "Default Browswer & URL Associations" -PercentComplete (($TaskCount / $TotalTasks) * 100)
+$BrowserInfo = Get-BrowserInfo 
 $SystemInventory += "# Default Browser & URL Associations", $BrowserInfo | Out-String
 
 # Event Log Activity
 
-$EventLogActivty = Get-CriticalErrorEvents | Format-Table -AutoSize -Wrap
 Update-Progress -Activity "Gathering system inventory" -Status "Event Log Activity" -PercentComplete (($TaskCount / $TotalTasks) * 100)
+$EventLogActivty = Get-CriticalErrorEvents | Format-Table -AutoSize -Wrap
 $SystemInventory += "# Event Log Activity", $EventLogActivty | Out-String
 
 # Updates & Hotfixes 
 
-$UpdateHistory = Get-WindowsUpdateHistory | Select-Object "KB Number", Installed, Title | Sort-Object Installed -Descending 
 Update-Progress -Activity "Gathering system inventory" -Status "Updates & Hotfixes" -PercentComplete (($TaskCount / $TotalTasks) * 100)  
+$UpdateHistory = Get-WindowsUpdateHistory | Select-Object "KB Number", Installed, Title | Sort-Object Installed -Descending 
 $SystemInventory += "# Updates & Hotfixes", $UpdateHistory | Out-String
 
 # Save & Display Results
 
-$OutputFile = Join-Path $Env:USERPROFILE "Downloads\System Inventory - $($Env:COMPUTERNAME).txt"
 Update-Progress -Activity "Gathering system inventory" -Status "Saving Results" -PercentComplete (($TaskCount / $TotalTasks) * 100) 
+$OutputFile = Join-Path $Env:USERPROFILE "Downloads\System Inventory - $($Env:COMPUTERNAME).txt"
 $SystemInventory | Out-File -FilePath $OutputFile -Encoding ascii
 Get-Content -Path $OutputFile
 Write-Host "Hard copy saved as" $OutputFile; Write-Host
