@@ -1,7 +1,7 @@
 # Current Date
 
 
-Wednesday, September 18, 2024 8:01:24 PM
+Thursday, September 19, 2024 9:13:38 AM
 
 
 # Operating System
@@ -16,7 +16,7 @@ Registered Owner:          noirawjh@live.com
 Registered Organization:   N/A
 Product ID:                00330-80000-00000-AA447
 Original Install Date:     10/5/2022, 7:46:26 AM
-System Boot Time:          9/16/2024, 4:14:08 PM
+System Boot Time:          9/19/2024, 8:48:58 AM
 System Manufacturer:       Dell Inc.
 System Model:              G7 7588
 System Type:               x64-based PC
@@ -30,10 +30,10 @@ System Locale:             en-us;English (United States)
 Input Locale:              en-us;English (United States)
 Time Zone:                 (UTC-06:00) Central Time (US & Canada)
 Total Physical Memory:     16,177 MB
-Available Physical Memory: 8,904 MB
+Available Physical Memory: 10,583 MB
 Virtual Memory: Max Size:  17,201 MB
-Virtual Memory: Available: 8,164 MB
-Virtual Memory: In Use:    9,037 MB
+Virtual Memory: Available: 10,916 MB
+Virtual Memory: In Use:    6,285 MB
 Page File Location(s):     C:\pagefile.sys
 Domain:                    WORKGROUP
 Logon Server:              \\WHAMILL-W10
@@ -51,15 +51,11 @@ Network Card(s):           3 NIC(s) Installed.
                                  IP address(es)
                                  [01]: 192.168.1.35
                                  [02]: fe80::ecf6:debf:636b:f0bc
-                                 [03]: fd00:f85b:3bc0:b38:f096:37c4:7007:5b3c
-                                 [04]: fd00:f85b:3bc0:b38:3c5d:4f20:5c3d:1118
-                                 [05]: fd00:f85b:3bc0:b38:2409:39d2:9627:d0ad
-                                 [06]: 2603:8080:1f05:4f8e:f096:37c4:7007:5b3c
-                                 [07]: 2603:8080:1f05:4f8e:3c5d:4f20:5c3d:1118
-                                 [08]: 2603:8080:1f05:4f8e:2409:39d2:9627:d0ad
-                                 [09]: fd00:f85b:3bc0:b38:b71e:8302:c915:7e7c
-                                 [10]: fd00:f85b:3bc0:b38::11c8
-                                 [11]: 2603:8080:1f05:4f8e:8037:9ca6:e6b9:dd0e
+                                 [03]: fd00:f85b:3bc0:b38:6427:3a07:70fe:ba27
+                                 [04]: 2603:8080:1f05:4f8e:6427:3a07:70fe:ba27
+                                 [05]: fd00:f85b:3bc0:b38:b71e:8302:c915:7e7c
+                                 [06]: fd00:f85b:3bc0:b38::11c8
+                                 [07]: 2603:8080:1f05:4f8e:8037:9ca6:e6b9:dd0e
                            [02]: Killer E2400 Gigabit Ethernet Controller
                                  Connection Name: Ethernet
                                  Status:          Media disconnected
@@ -97,7 +93,7 @@ DisplayLink USB Device                            0 11.0.2412.0    08-Dec-2022
 
 SystemName  DeviceID VolumeName Free Space (GB) Total Size (GB) Free Space %
 ----------  -------- ---------- --------------- --------------- ------------
-WHAMILL-W10 C:       OS         140.54          237.71          59.12       
+WHAMILL-W10 C:       OS         140.53          237.71          59.12       
 WHAMILL-W10 D:       Storage    457.77          465.75          98.29       
 
 
@@ -123,11 +119,11 @@ WindowsMediaPlayer
 
 # Network Adapters & Mac Addresses
 
-Name            InterfaceDescription                     ifIndex Status       MacAddress        LinkSpeed
-----            --------------------                     ------- ------       ----------        ---------
-Wi-Fi           Intel(R) Wireless-AC 9560 160MHz              20 Up           A2-3F-57-4F-8D-14  390 Mbps
-Ethernet - Dock Dell Giga Ethernet                            10 Disconnected 9C-EB-E8-A0-02-CC   10 Mbps
-Ethernet        Killer E2400 Gigabit Ethernet Controller       5 Disconnected 3C-2C-30-C8-D3-29     0 bps
+Name            InterfaceDescription                     ifIndex Status       MacAddress         LinkSpeed
+----            --------------------                     ------- ------       ----------         ---------
+Wi-Fi           Intel(R) Wireless-AC 9560 160MHz              20 Up           A2-3F-57-4F-8D-14 866.7 Mbps
+Ethernet - Dock Dell Giga Ethernet                            10 Disconnected 9C-EB-E8-A0-02-CC    10 Mbps
+Ethernet        Killer E2400 Gigabit Ethernet Controller       5 Disconnected 3C-2C-30-C8-D3-29      0 bps
 
 
 # ISP Details & External IP Addresses
@@ -154,9 +150,9 @@ Installed Platform         : Windows Defender
 Install Path               : %ProgramFiles%\Windows Defender\MsMpeng.exe
 Computer                   : WHAMILL-W10
 Version                    : 4.18.24080.9
-AV\Spyware Signature       : 1.419.42.0
-Latest Definitions Update  : 18-Sep-2024 09:45:42 AM
-Most Recent Scan           : 16-Sep-2024 04:16:31 PM
+AV\Spyware Signature       : 1.419.60.0
+Latest Definitions Update  : 19-Sep-2024 01:47:06 AM
+Most Recent Scan           : 19-Sep-2024 08:51:18 AM
 AntiVirus Enabled          : True
 AntiSpyware Enabled        : True
 Behavior Monitor           : True
@@ -212,8 +208,19 @@ ZoomPhoneCall              ZoomPbx.zoomphonecall
 
 # Event Log Activity
 
-
-No Critical or Error events raised over the past 24 hours.
+LevelDisplayName   Id TimeCreated          ProviderName      Message                                                                                                                                                                                                          
+----------------   -- -----------          ------------      -------                                                                                                                                                                                                          
+Error            1000 9/19/2024 6:00:33 AM Application Error Faulting application name: AcroServicesUpdater2_x64.exe, version: 0.0.0.0, time stamp: 0x66e42c00                                                                                                                
+                                                             Faulting module name: AcroServicesUpdater2_x64.exe, version: 0.0.0.0, time stamp: 0x66e42c00                                                                                                                     
+                                                             Exception code: 0xc0000005                                                                                                                                                                                       
+                                                             Fault offset: 0x0000000000007407                                                                                                                                                                                 
+                                                             Faulting process id: 0x0x2ED8                                                                                                                                                                                    
+                                                             Faulting application start time: 0x0x1DB0A8325EBE44F                                                                                                                                                             
+                                                             Faulting application path: C:\Program Files (x86)\Common Files\Adobe\ARM\Execute\2427\AcroServicesUpdater2_x64.exe                                                                                               
+                                                             Faulting module path: C:\Program Files (x86)\Common Files\Adobe\ARM\Execute\2427\AcroServicesUpdater2_x64.exe                                                                                                    
+                                                             Report Id: 4472cf3a-5e9e-474a-8a3f-7eefaffe32ea                                                                                                                                                                  
+                                                             Faulting package full name:                                                                                                                                                                                      
+                                                             Faulting package-relative application ID:                                                                                                                                                                        
 
 
 # Updates & Hotfixes
@@ -230,7 +237,7 @@ KB5041585 08-13-2024 05:54:41 PM 2024-08 Cumulative Update for Windows 11 Versio
 KB4052623 08-08-2024 12:48:59 AM Update for Microsoft Defender Antivirus antimalware platform - KB4052623 (Version 4.18.24070.5) - Current Channel (Broad)
           08-07-2024 12:22:31 PM Intel Corporation - Extension - 27.20.100.8935                                                                           
           08-07-2024 12:22:28 PM Intel Corporation - Extension - 26.20.100.8141                                                                           
-          08-07-2024 12:22:26 PM Intel Corporation - Extension - 8/15/2018 12:00:00 AM - 24.20.100.6287                                                                                                     
+          08-07-2024 12:22:26 PM Intel Corporation - Extension - 8/15/2018 12:00:00 AM - 24.20.100.6287                                                                                                   
 KB5041080 07-22-2024 11:33:21 PM 2024-07 .NET 6.0.32 Security Update for x64 Client (KB5041080)                                                           
 KB4052623 07-16-2024 04:23:26 AM Update for Microsoft Defender Antivirus antimalware platform - KB4052623 (Version 4.18.24060.7) - Current Channel (Broad)
 KB890830  07-10-2024 03:06:02 AM Windows Malicious Software Removal Tool x64 - v5.126 (KB890830)                                                          
@@ -240,4 +247,4 @@ KB5041080 07-10-2024 01:59:00 AM 2024-07 .NET 6.0.32 Security Update for x64 Cli
 KB890830  06-12-2024 04:34:56 AM Windows Malicious Software Removal Tool x64 - v5.125 (KB890830)                                                          
 KB5039212 06-12-2024 04:33:38 AM 2024-06 Cumulative Update for Windows 11 Version 23H2 for x64-based Systems (KB5039212)                                  
 KB4052623 06-04-2024 09:10:37 PM Update for Microsoft Defender Antivirus antimalware platform - KB4052623 (Version 4.18.24050.7) - Current Channel (Broad)
-KB5039843 05-29-2024 04:22:11 AM 2024-05 .NET 6.0.31 Security Update for x64 Client (KB5039843)
+KB5039843 05-29-2024 04:22:11 AM 2024-05 .NET 6.0.31 Security Update for x64 Client (KB5039843)                                                           
