@@ -289,7 +289,7 @@ function Get-SecurityPosture {
     $Results = @()
     foreach ($LegacyObject in $ProtectionLegacy) {
         try {
-            $AVMostRecentScan = Get-Date -Date $LegacyObject.TimeStamp -Format "ddd, dd-MMM-yyyy hh:mm:ss tt"
+            $AVMostRecentScan = Get-Date -Date $LegacyObject.TimeStamp -Format "dd-MMM-yyyy hh:mm:ss tt"
         }
         catch {
             Write-Error "Failed to parse most recent scan timestamp for $($LegacyObject.displayName): $($_.Exception.Message)"
@@ -298,7 +298,7 @@ function Get-SecurityPosture {
 
         foreach ($CurrentObject in $ProtectionCurrent) {
             try {
-                $AVDefSigTimeStamp = Get-Date -Date $CurrentObject.AntispywareSignatureUpdateDateTime -Format "ddd, dd-MMM-yyyy hh:mm:ss tt"
+                $AVDefSigTimeStamp = Get-Date -Date $CurrentObject.AntispywareSignatureUpdateDateTime -Format "dd-MMM-yyyy hh:mm:ss tt"
             }
             catch {
                 Write-Error "Failed to parse antispyware ipdate timestamp for $($CurrentObject.Version): $($_.Exception.Message)"
