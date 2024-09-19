@@ -130,10 +130,10 @@ function Get-GpuProperties {
         $gpuProperties = Get-CimInstance -ClassName Win32_VideoController
         $gpuDetails = foreach ($gpu in $gpuProperties) {
             [PSCustomObject]@{
-                'Device Name'         = $gpu.Name
-                'Video RAM'           = [Math]::Round($gpu.AdapterRAM / 1MB, 2)
-                'Driver Version'      = $gpu.DriverVersion
-                'Install Date & Time' = $gpu.DriverDate.ToString('MM-dd-yyyy hh:mm tt')
+                'Device Name'    = $gpu.Name
+                'Video RAM'      = [Math]::Round($gpu.AdapterRAM / 1MB, 2)
+                'Driver Version' = $gpu.DriverVersion
+                'Driver Date'    = $gpu.DriverDate.ToString('dd-MMM-yyyy')
             } 
         }
         return $gpuDetails
