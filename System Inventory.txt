@@ -301,7 +301,7 @@ function Get-SecurityPosture {
                 $AVDefSigTimeStamp = Get-Date -Date $CurrentObject.AntispywareSignatureUpdateDateTime -Format "dd-MMM-yyyy hh:mm:ss tt"
             }
             catch {
-                Write-Error "Failed to parse antispyware ipdate timestamp for $($CurrentObject.Version): $($_.Exception.Message)"
+                Write-Error "Failed to parse antispyware update timestamp for $($CurrentObject.Version): $($_.Exception.Message)"
                 continue
             }
 
