@@ -200,7 +200,7 @@ Critical         10111 8/22/2024 8:57:55 PM Microsoft-Windows-DriverFrameworks-U
 Critical         10111 8/22/2024 8:57:55 PM Microsoft-Windows-DriverFrameworks-UserMode The device Dell Universal Dock D6000 (location 0000.0014.0000.017.001.000.000.000.000) is offline due to a user-mode driver crash.  Windows will attempt to restart the  
                                                                                         device 5 more times.  Please contact the device manufacturer for more information about this problem.                                                                    
 Error               13 8/23/2024 7:56:19 AM VSS                                         Volume Shadow Copy Service information: The COM Server with CLSID {4e14fba2-2e22-11d1-9964-00c04fbbb345} and name CEventSystem cannot be started. [0x8007045b, A system  
-                                                                                       shutdown is in progress.]                                                                                                                                                                        
+                                                                                        shutdown is in progress.]                                                                                                                                                                        
 # Updates & Hotfixes
 
 KB Number Installed             Title                                                                                                                    
