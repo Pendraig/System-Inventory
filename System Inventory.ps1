@@ -59,9 +59,9 @@ function Initialize-Script {
 function Hide-ISEScriptPane {
     if ($host.Name -eq 'Windows PowerShell ISE Host') {
         Add-Type -AssemblyName System.Windows.Forms
-        [System.Windows.Forms.SendKeys]::SendWait("^r")
-        Clear-Host
+        [System.Windows.Forms.SendKeys]::SendWait("^r")        
     }
+    Clear-Host
 }   
 
 # Windows Product Key
