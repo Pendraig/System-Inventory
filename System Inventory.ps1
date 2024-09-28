@@ -249,8 +249,8 @@ function Get-DotNetProperties {
 
 function Get-ISPDetails {
     try {
-        $IPv4 = Invoke-RestMethod -Uri 'http://ipinfo.io/'
-        $IPv6 = Invoke-RestMethod -Uri 'http://ident.me/'
+        $IPv4 = Invoke-RestMethod -Uri 'http://ipinfo.io/' -TimeoutSec 30
+        $IPv6 = Invoke-RestMethod -Uri 'http://ident.me/' -TimeoutSec 30
         return [PSCustomObject]@{
             IPv4 = $IPv4
             IPv6 = $IPv6
@@ -260,6 +260,7 @@ function Get-ISPDetails {
         throw "An error occurred while retrieving ISP details: $($_.Exception.Message)"
     }
 }
+
 
 # Antivirus Details
 
