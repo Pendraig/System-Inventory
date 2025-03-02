@@ -425,7 +425,7 @@ function Get-WindowsUpdateHistory {
                     }) | Out-Null
             } 
         } 
-        $Updates | Sort-Object $._Date -Descending | Select-Object 'KB Number', Installed, Title 
+        $Updates | Sort-Object Installed -Descending | Select-Object 'KB Number', Installed, Title 
     }
     catch {
         throw "An error occurred while retrieving Windows update history: $($_.Exception.Message)"
