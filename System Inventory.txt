@@ -261,13 +261,12 @@ function Get-ISPDetails {
     }
 }
 
-
 # Antivirus Details
 
 function Get-SecurityPosture {
     try {
-        # Extract data from AntiVirusProduct class - Source\Inspiration: https://jdhitsolutions.com/blog/powershell/5187/get-antivirus-product-status-with-powershell/ 
-        
+        # Extract data from AntiVirusProduct class
+        # Source\Inspiration:  https://jdhitsolutions.com/blog/powershell/5187/get-antivirus-product-status-with-powershell/
         $ProtectionLegacy = Get-CimInstance -Namespace "root\SecurityCenter2" -ClassName "AntiVirusProduct" -ErrorAction Stop
     }
     catch {
@@ -276,8 +275,8 @@ function Get-SecurityPosture {
     }
 
     try {
-        # Extract data from ProtectionTechnologyStatus class - Source\Inspiration: https://jdhitsolutions.com/blog/powershell/6082/searching-for-a-cim-wmi-class-with-powershell/ 
-         
+        # Extract data from ProtectionTechnologyStatus class
+        # Source\Inspiration:  https://jdhitsolutions.com/blog/powershell/6082/searching-for-a-cim-wmi-class-with-powershell/
         $ProtectionCurrent = Get-CimInstance -Namespace "root\Microsoft\SecurityClient" -ClassName "ProtectionTechnologyStatus" -ErrorAction Stop
     }
     catch {
@@ -286,14 +285,14 @@ function Get-SecurityPosture {
     }
 
     # Combine and format the data from namespaces and classes listed above into a single array
-
     $Results = @()
+
     foreach ($LegacyObject in $ProtectionLegacy) {
         try {
             $AVMostRecentScan = Get-Date -Date $LegacyObject.TimeStamp -Format "dd-MMM-yyyy hh:mm:ss tt"
         }
         catch {
-            Write-Error "Failed to parse most recent scan timestamp for $($LegacyObject.DisplayName): $($_.Exception.Message)"
+            Write-Error "Failed to parse timestamp for $($LegacyObject.DisplayName): $($_.Exception.Message)"
             continue
         }
 
@@ -302,10 +301,10 @@ function Get-SecurityPosture {
                 $AVDefSigTimeStamp = Get-Date -Date $CurrentObject.AntispywareSignatureUpdateDateTime -Format "dd-MMM-yyyy hh:mm:ss tt"
             }
             catch {
-                Write-Error "Failed to parse antispyware update timestamp for $($CurrentObject.Version): $($_.Exception.Message)"
+                Write-Error "Failed to parse AntispywareSignatureUpdateDateTime for $($CurrentObject.Version): $($_.Exception.Message)"
                 continue
             }
-
+        
             $Results += [PSCustomObject]@{
                 "Installed Platform"         = $LegacyObject.DisplayName
                 "Install Path"               = $LegacyObject.PathToSignedReportingExe
@@ -373,7 +372,7 @@ function Get-BrowserInfo {
 
 # Event Log Activity
 
-function Get-CriticalErrorEvents {
+function Get-EventLogHistory {
     try {
         # Define the time range (last 24 hours)
 
@@ -389,7 +388,7 @@ function Get-CriticalErrorEvents {
         
         # Output results
                 
-        $events | Select-Object LevelDisplayName, Id, TimeCreated, ProviderName, Message | Sort-Object LevelDisplayName, TimeCreated -Descending
+        $events | Select-Object LevelDisplayName, Id, TimeCreated, ProviderName, Message | Sort-Object TimeCreated, LevelDisplayName -Descending
     }
     catch {
         if ($_.Exception.Message -match "No events were found that match the specified selection criteria") {
@@ -420,13 +419,13 @@ function Get-WindowsUpdateHistory {
 
                 $Updates.Add([PSCustomObject]@{            
                         'KB Number'   = [regex]::match($Update.Title, 'KB(\d+)').Value
-                        'Installed'   = $Update.Date.ToString('MM-dd-yyyy hh:mm:ss tt')
+                        'Installed'   = $Update.Date
                         'Title'       = $Update.Title
                         'Description' = $Update.Description
                     }) | Out-Null
             } 
         } 
-        $Updates 
+        $Updates | Sort-Object $._Date -Descending | Select-Object 'KB Number', Installed, Title 
     }
     catch {
         throw "An error occurred while retrieving Windows update history: $($_.Exception.Message)"
@@ -533,7 +532,7 @@ $SystemInventory += "# Default Browser & URL Associations", $BrowserInfo | Out-S
 # Event Log Activity
 
 Update-Progress -Activity "Gathering system inventory" -Status "Event Log Activity" -PercentComplete (($TaskCount / $TotalTasks) * 100)
-$EventLogActivty = Get-CriticalErrorEvents | Format-Table -AutoSize -Wrap
+$EventLogActivty = Get-EventLogHistory | Format-Table -AutoSize -Wrap
 $SystemInventory += "# Event Log Activity", $EventLogActivty | Out-String
 
 # Updates & Hotfixes 
