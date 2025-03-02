@@ -1,100 +1,116 @@
 # Current Date
 
 
-Thursday, September 19, 2024 9:13:38 AM
+Sunday, March 2, 2025 1:56:08 PM
 
 
 # Operating System
 
-Host Name:                 WHAMILL-W10
-OS Name:                   Microsoft Windows 11 Pro
-OS Version:                10.0.22631 N/A Build 22631
-OS Manufacturer:           Microsoft Corporation
-OS Configuration:          Standalone Workstation
-OS Build Type:             Multiprocessor Free
-Registered Owner:          noirawjh@live.com
-Registered Organization:   N/A
-Product ID:                00330-80000-00000-AA447
-Original Install Date:     10/5/2022, 7:46:26 AM
-System Boot Time:          9/19/2024, 8:48:58 AM
-System Manufacturer:       Dell Inc.
-System Model:              G7 7588
-System Type:               x64-based PC
-Processor(s):              1 Processor(s) Installed.
-                           [01]: Intel64 Family 6 Model 158 Stepping 10 GenuineIntel ~2208 Mhz
-BIOS Version:              Dell Inc. 1.21.0, 4/15/2022
-Windows Directory:         C:\WINDOWS
-System Directory:          C:\WINDOWS\system32
-Boot Device:               \Device\HarddiskVolume3
-System Locale:             en-us;English (United States)
-Input Locale:              en-us;English (United States)
-Time Zone:                 (UTC-06:00) Central Time (US & Canada)
-Total Physical Memory:     16,177 MB
-Available Physical Memory: 10,583 MB
-Virtual Memory: Max Size:  17,201 MB
-Virtual Memory: Available: 10,916 MB
-Virtual Memory: In Use:    6,285 MB
-Page File Location(s):     C:\pagefile.sys
-Domain:                    WORKGROUP
-Logon Server:              \\WHAMILL-W10
-Hotfix(s):                 5 Hotfix(s) Installed.
-                           [01]: KB5042099
-                           [02]: KB5012170
-                           [03]: KB5027397
-                           [04]: KB5043076
-                           [05]: KB5043937
-Network Card(s):           3 NIC(s) Installed.
-                           [01]: Intel(R) Wireless-AC 9560 160MHz
-                                 Connection Name: Wi-Fi
-                                 DHCP Enabled:    Yes
-                                 DHCP Server:     192.168.1.1
-                                 IP address(es)
-                                 [01]: 192.168.1.35
-                                 [02]: fe80::ecf6:debf:636b:f0bc
-                                 [03]: fd00:f85b:3bc0:b38:6427:3a07:70fe:ba27
-                                 [04]: 2603:8080:1f05:4f8e:6427:3a07:70fe:ba27
-                                 [05]: fd00:f85b:3bc0:b38:b71e:8302:c915:7e7c
-                                 [06]: fd00:f85b:3bc0:b38::11c8
-                                 [07]: 2603:8080:1f05:4f8e:8037:9ca6:e6b9:dd0e
-                           [02]: Killer E2400 Gigabit Ethernet Controller
-                                 Connection Name: Ethernet
-                                 Status:          Media disconnected
-                           [03]: DisplayLink Network Adapter NCM
-                                 Connection Name: Ethernet - Dock
-                                 Status:          Media disconnected
-Hyper-V Requirements:      A hypervisor has been detected. Features required for Hyper-V will not be displayed.
+Host Name:                     WHAMILL-W11
+OS Name:                       Microsoft Windows 11 Pro
+OS Version:                    10.0.26100 N/A Build 26100
+OS Manufacturer:               Microsoft Corporation
+OS Configuration:              Standalone Workstation
+OS Build Type:                 Multiprocessor Free
+Registered Owner:              noirawjh@live.com
+Registered Organization:       N/A
+Product ID:                    00330-80000-00000-AA546
+Original Install Date:         12/4/2024, 12:54:07 PM
+System Boot Time:              3/2/2025, 11:40:52 AM
+System Manufacturer:           Dell Inc.
+System Model:                  Dell G15 5530
+System Type:                   x64-based PC
+Processor(s):                  1 Processor(s) Installed.
+                               [01]: Intel64 Family 6 Model 183 Stepping 1 GenuineIntel ~2600 Mhz
+BIOS Version:                  Dell Inc. 1.22.0, 12/18/2024
+Windows Directory:             C:\WINDOWS
+System Directory:              C:\WINDOWS\system32
+Boot Device:                   \Device\HarddiskVolume1
+System Locale:                 en-us;English (United States)
+Input Locale:                  en-us;English (United States)
+Time Zone:                     (UTC-06:00) Central Time (US & Canada)
+Total Physical Memory:         16,069 MB
+Available Physical Memory:     10,307 MB
+Virtual Memory: Max Size:      31,429 MB
+Virtual Memory: Available:     23,843 MB
+Virtual Memory: In Use:        7,586 MB
+Page File Location(s):         C:\pagefile.sys
+Domain:                        WORKGROUP
+Logon Server:                  \\WHAMILL-W11
+Hotfix(s):                     3 Hotfix(s) Installed.
+                               [01]: KB5049622
+                               [02]: KB5051987
+                               [03]: KB5052085
+Network Card(s):               3 NIC(s) Installed.
+                               [01]: DisplayLink Network Adapter NCM
+                                     Connection Name: Ethernet - Dock
+                                     Status:          Media disconnected
+                               [02]: Intel(R) Wi-Fi 6 AX201 160MHz
+                                     Connection Name: Wi-Fi
+                                     DHCP Enabled:    Yes
+                                     DHCP Server:     192.168.1.1
+                                     IP address(es)
+                                     [01]: 192.168.1.204
+                                     [02]: fe80::e1d3:b8f0:dd2c:6e1f
+                                     [03]: fd00:f85b:3bc0:b38:e056:72a0:f74d:42ac
+                                     [04]: 2603:8080:1f05:4f8e:e056:72a0:f74d:42ac
+                                     [05]: fd00:f85b:3bc0:b38:1c2c:7ad:7291:a744
+                                     [06]: fd00:f85b:3bc0:b38::1ff3
+                                     [07]: 2603:8080:1f05:4f8e:1188:cc06:89b5:9b09
+                                     [08]: 2603:8080:1f05:4f8e::1ff3
+                               [03]: Realtek PCIe GbE Family Controller
+                                     Connection Name: Ethernet
+                                     Status:          Media disconnected
+Virtualization-based security: Status: Running
+                               Required Security Properties:
+                               Available Security Properties:
+                                     Base Virtualization Support
+                                     Secure Boot
+                                     DMA Protection
+                                     Secure Memory Overwrite
+                                     UEFI Code Readonly
+                                     SMM Security Mitigations 1.0
+                                     Mode Based Execution Control
+                                     APIC Virtualization
+                               Services Configured:
+                                     Hypervisor enforced Code Integrity
+                               Services Running:
+                                     Hypervisor enforced Code Integrity
+                               App Control for Business policy: Enforced
+                               App Control for Business user mode policy: Off
+                               Security Features Enabled:
+Hyper-V Requirements:          A hypervisor has been detected. Features required for Hyper-V will not be displayed.
 
 
 # OEM Identifier
 
 SerialNumber
 ------------
-XXXXXXX                        <-- Redacted for information security; unique, system-specific results generated from the target system run on.     
+BV7V434     
 
 
 # Windows Product Key
 
 Product Key                  
 -----------                  
-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX  <-- Redacted for information security; unique, system-specific results generated from the target system run on.
+VK7JG-NPHTM-C97JM-9MPGT-3V66T
 
 
 # Graphic Cards
 
-Device Name                               Video RAM Driver Version Driver Date
------------                               --------- -------------- -----------
-NVIDIA GeForce GTX 1060 with Max-Q Design      4095 32.0.15.6109   04-Sep-2024
-Intel(R) UHD Graphics 630                      1024 27.20.100.9664 31-May-2021
-DisplayLink USB Device                            0 11.0.2412.0    08-Dec-2022
-DisplayLink USB Device                            0 11.0.2412.0    08-Dec-2022
+Device Name                        Video RAM Driver Version Driver Date
+-----------                        --------- -------------- -----------
+NVIDIA GeForce RTX 4060 Laptop GPU      4095 32.0.15.6103   29-Aug-2024
+Intel(R) UHD Graphics                   2048 32.0.101.6078  12-Sep-2024
+DisplayLink USB Device                     0 9.3.3324.0     15-Apr-2020
+DisplayLink USB Device                     0 9.3.3324.0     15-Apr-2020
 
 
 # Storage Capacity
 
 SystemName  DeviceID VolumeName Free Space (GB) Total Size (GB) Free Space %
 ----------  -------- ---------- --------------- --------------- ------------
-WHAMILL-W10 C:       OS         140.53          237.71          59.12       
-WHAMILL-W10 D:       Storage    457.77          465.75          98.29       
+WHAMILL-W11 C:       OS         649.09          928.27          69.92       
 
 
 # Windows Client - Active Optional Features
@@ -115,22 +131,23 @@ SmbDirect
 WCF-Services45                             
 WCF-TCP-PortSharing45                      
 WindowsMediaPlayer                         
+WorkFolders-Client                         
 
 
 # Network Adapters & Mac Addresses
 
-Name            InterfaceDescription                     ifIndex Status       MacAddress         LinkSpeed
-----            --------------------                     ------- ------       ----------         ---------
-Wi-Fi           Intel(R) Wireless-AC 9560 160MHz              20 Up           A2-3F-57-4F-8D-14 866.7 Mbps
-Ethernet - Dock Dell Giga Ethernet                            10 Disconnected 9C-EB-E8-A0-02-CC    10 Mbps
-Ethernet        Killer E2400 Gigabit Ethernet Controller       5 Disconnected 3C-2C-30-C8-D3-29      0 bps
+Name            InterfaceDescription               ifIndex Status       MacAddress        LinkSpeed
+----            --------------------               ------- ------       ----------        ---------
+Wi-Fi           Intel(R) Wi-Fi 6 AX201 160MHz           14 Up           4C-5F-70-DE-3C-35  780 Mbps
+Ethernet        Realtek PCIe GbE Family Controller       7 Disconnected 04-BF-1B-C1-E3-6A     0 bps
+Ethernet - Dock Dell Giga Ethernet                       6 Disconnected 9C-EB-E8-A0-02-CC    1 Gbps
 
 
 # ISP Details & External IP Addresses
 
 
-ip       : XX.XXX.XX.XXX                         <-- Redacted for information security; unique, system-specific results generated from the target system run on.
-hostname : syn-XXX-XXX-XXX-XXX.res.spectrum.com  <-- Redacted for information security; unique, system-specific results generated from the target system run on.
+ip       : 68.203.15.108
+hostname : syn-068-203-015-108.res.spectrum.com
 city     : Austin
 region   : Texas
 country  : US
@@ -140,7 +157,7 @@ postal   : 78726
 timezone : America/Chicago
 readme   : https://ipinfo.io/missingauth
 
-XXXX:XXXX:XXXX:XXXX:XXXX:XXXX:XXXX:XXXX          <-- Redacted for information security; unique, system-specific results generated from the target system run on.
+2603:8080:1f05:4f8e:e056:72a0:f74d:42ac
 
 
 # Antivirus Details
@@ -148,11 +165,11 @@ XXXX:XXXX:XXXX:XXXX:XXXX:XXXX:XXXX:XXXX          <-- Redacted for information se
 
 Installed Platform         : Windows Defender
 Install Path               : %ProgramFiles%\Windows Defender\MsMpeng.exe
-Computer                   : WHAMILL-W10
-Version                    : 4.18.24080.9
-AV\Spyware Signature       : 1.419.60.0
-Latest Definitions Update  : 19-Sep-2024 01:47:06 AM
-Most Recent Scan           : 19-Sep-2024 08:51:18 AM
+Computer                   : WHAMILL-W11
+Version                    : 4.18.24090.11
+AV\Spyware Signature       : 1.423.195.0
+Latest Definitions Update  : 02-Mar-2025 04:47:28 AM
+Most Recent Scan           : 02-Mar-2025 11:43:13 AM
 AntiVirus Enabled          : True
 AntiSpyware Enabled        : True
 Behavior Monitor           : True
@@ -167,7 +184,7 @@ Realtime Protection        : True
 
 Major  Minor  Build  Revision
 -----  -----  -----  --------
-5      1      22621  4111    
+5      1      26100  2161    
 
 
 # .Net Framework
@@ -175,8 +192,10 @@ Major  Minor  Build  Revision
 Client                       Version Release
 ------                       ------- -------
 Full                         4.8.1    533320
-Microsoft.NETCore.App        6.0.33         
-Microsoft.WindowsDesktop.App 6.0.33         
+Microsoft.NETCore.App        6.0.36         
+Microsoft.NETCore.App        8.0.13         
+Microsoft.WindowsDesktop.App 6.0.36         
+Microsoft.WindowsDesktop.App 8.0.13         
 
 
 # Default Browser & URL Associations
@@ -184,67 +203,62 @@ Microsoft.WindowsDesktop.App 6.0.33
 Name                       Value                               
 ----                       -----                               
 Default Browser            Google Chrome                       
-callto                                                         
-webcal                     AppX4vt5c8cbxd42btbp6br6zs9v25a1kh5j
+ms-outlook                 AppX1scw7cgxcz9hmq03sd8qajzg3s9t7901
 mswindowsvideo             AppX6w6n4f8xch1s3vzwf3af6bfe88qhxbza
 mailto                     AppXbx2ce4vcxjdhff3d1ms66qqzk12zn827
 ms-screenclip              AppXfeq5vwnakrw6cy02kzhq8ekhhsremh62
 bingmaps                   AppXp9gkwccvk6fa6yyfq3tmsk8ws2nprk1p
 mswindowsmusic             AppXtggqqtcfspt6ks3fjzyfppwc05yxwtwy
-ftp                        ChromeHTML                          
 http                       ChromeHTML                          
 https                      ChromeHTML                          
 mms                        ChromeHTML                          
 sms                        ChromeHTML                          
 tel                        ChromeHTML                          
+ftp                        MSEdgeHTM                           
 microsoft-edge             MSEdgeHTM                           
 microsoft-edge-holographic MSEdgeHTM                           
 ms-xbl-3d8b930f            MSEdgeHTM                           
 read                       MSEdgeHTM                           
-sip                        ZoomMeeting.sip                     
-IM                         ZoomPbx.im                          
-ZoomPhoneCall              ZoomPbx.zoomphonecall               
 
 
 # Event Log Activity
 
-LevelDisplayName   Id TimeCreated          ProviderName      Message                                                                                                                                                                                                          
-----------------   -- -----------          ------------      -------                                                                                                                                                                                                          
-Error            1000 9/19/2024 6:00:33 AM Application Error Faulting application name: AcroServicesUpdater2_x64.exe, version: 0.0.0.0, time stamp: 0x66e42c00                                                                                                                
-                                                             Faulting module name: AcroServicesUpdater2_x64.exe, version: 0.0.0.0, time stamp: 0x66e42c00                                                                                                                     
-                                                             Exception code: 0xc0000005                                                                                                                                                                                       
-                                                             Fault offset: 0x0000000000007407                                                                                                                                                                                 
-                                                             Faulting process id: 0x0x2ED8                                                                                                                                                                                    
-                                                             Faulting application start time: 0x0x1DB0A8325EBE44F                                                                                                                                                             
-                                                             Faulting application path: C:\Program Files (x86)\Common Files\Adobe\ARM\Execute\2427\AcroServicesUpdater2_x64.exe                                                                                               
-                                                             Faulting module path: C:\Program Files (x86)\Common Files\Adobe\ARM\Execute\2427\AcroServicesUpdater2_x64.exe                                                                                                    
-                                                             Report Id: 4472cf3a-5e9e-474a-8a3f-7eefaffe32ea                                                                                                                                                                  
-                                                             Faulting package full name:                                                                                                                                                                                      
-                                                             Faulting package-relative application ID:                                                                                                                                                                        
+LevelDisplayName    Id TimeCreated          ProviderName                     Message                                                                                                                                                       
+----------------    -- -----------          ------------                     -------                                                                                                                                                       
+Error            10010 3/2/2025 12:09:42 PM Microsoft-Windows-DistributedCOM The server Windows.Gaming.GameBar.PresenceServer.Internal.PresenceWriter did not register with DCOM within the required timeout.                              
+Error             6008 3/2/2025 11:41:08 AM EventLog                         The previous system shutdown at 11:33:12 AM on ?3/?2/?2025 was unexpected.                                                                                    
+Critical            41 3/2/2025 11:40:55 AM Microsoft-Windows-Kernel-Power   The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.
+Error             7043 3/2/2025 11:35:58 AM Service Control Manager          The Windows Update service did not shut down properly after receiving a preshutdown control.                                                                  
+Error            10010 3/2/2025 8:10:29 AM  Microsoft-Windows-DistributedCOM The server Windows.Gaming.GameBar.PresenceServer.Internal.PresenceWriter did not register with DCOM within the required timeout.                              
+Error               21 3/1/2025 10:44:20 PM Microsoft-Windows-HAL            The hardware real-time clock was not set because evaluation of the ACPI Time and Alarm Device method failed.  Status: 0xC00000BB.                             
+Error               20 3/1/2025 10:44:20 PM Microsoft-Windows-HAL            The hardware real-time clock was not queried because evaluation of the ACPI Time and Alarm Device method failed.  Status: 0xC00000BB.                         
+Error            10010 3/1/2025 2:15:45 PM  Microsoft-Windows-DistributedCOM The server Windows.Gaming.GameBar.PresenceServer.Internal.PresenceWriter did not register with DCOM within the required timeout.                              
 
 
 # Updates & Hotfixes
 
-KB Number Installed              Title                                                                                                                    
---------- ---------              -----                                                                                                                    
-KB4052623 09-17-2024 09:25:09 PM Update for Microsoft Defender Antivirus antimalware platform - KB4052623 (Version 4.18.24080.9) - Current Channel (Broad)
-KB5043076 09-11-2024 01:55:56 AM 2024-09 Cumulative Update for Windows 11 Version 23H2 for x64-based Systems (KB5043076)                                  
-KB890830  09-11-2024 01:49:09 AM Windows Malicious Software Removal Tool x64 - v5.128 (KB890830)                                                          
-KB5042099 08-13-2024 05:56:51 PM 2024-08 Cumulative Update for .NET Framework 3.5 and 4.8.1 for Windows 11, version 23H2 for x64 (KB5042099)              
-KB5042131 08-13-2024 05:56:13 PM 2024-08 .NET 6.0.33 Update for x64 Client (KB5042131)                                                                    
-KB890830  08-13-2024 05:56:01 PM Windows Malicious Software Removal Tool x64 - v5.127 (KB890830)                                                          
-KB5041585 08-13-2024 05:54:41 PM 2024-08 Cumulative Update for Windows 11 Version 23H2 for x64-based Systems (KB5041585)                                  
-KB4052623 08-08-2024 12:48:59 AM Update for Microsoft Defender Antivirus antimalware platform - KB4052623 (Version 4.18.24070.5) - Current Channel (Broad)
-          08-07-2024 12:22:31 PM Intel Corporation - Extension - 27.20.100.8935                                                                           
-          08-07-2024 12:22:28 PM Intel Corporation - Extension - 26.20.100.8141                                                                           
-          08-07-2024 12:22:26 PM Intel Corporation - Extension - 8/15/2018 12:00:00 AM - 24.20.100.6287                                                                                                   
-KB5041080 07-22-2024 11:33:21 PM 2024-07 .NET 6.0.32 Security Update for x64 Client (KB5041080)                                                           
-KB4052623 07-16-2024 04:23:26 AM Update for Microsoft Defender Antivirus antimalware platform - KB4052623 (Version 4.18.24060.7) - Current Channel (Broad)
-KB890830  07-10-2024 03:06:02 AM Windows Malicious Software Removal Tool x64 - v5.126 (KB890830)                                                          
-KB5040442 07-10-2024 02:54:24 AM 2024-07 Cumulative Update for Windows 11 Version 23H2 for x64-based Systems (KB5040442)                                  
-KB5039895 07-10-2024 02:49:16 AM 2024-07 Cumulative Update for .NET Framework 3.5 and 4.8.1 for Windows 11, version 23H2 for x64 (KB5039895)              
-KB5041080 07-10-2024 01:59:00 AM 2024-07 .NET 6.0.32 Security Update for x64 Client (KB5041080)                                                           
-KB890830  06-12-2024 04:34:56 AM Windows Malicious Software Removal Tool x64 - v5.125 (KB890830)                                                          
-KB5039212 06-12-2024 04:33:38 AM 2024-06 Cumulative Update for Windows 11 Version 23H2 for x64-based Systems (KB5039212)                                  
-KB4052623 06-04-2024 09:10:37 PM Update for Microsoft Defender Antivirus antimalware platform - KB4052623 (Version 4.18.24050.7) - Current Channel (Broad)
-KB5039843 05-29-2024 04:22:11 AM 2024-05 .NET 6.0.31 Security Update for x64 Client (KB5039843)                                                           
+KB Number Installed             Title                                                                                                      
+--------- ---------             -----                                                                                                      
+          2/13/2025 3:55:19 PM  Intel - SoftwareComponent - 1.46.2024.221                                                                  
+          2/13/2025 3:55:17 PM  Intel - SoftwareComponent - 1.74.210.0                                                                     
+          2/13/2025 3:55:14 PM  Intel - SoftwareComponent - 2428.6.4.0                                                                     
+KB890830  2/12/2025 1:55:47 AM  Windows Malicious Software Removal Tool x64 - v5.132 (KB890830)                                            
+KB890830  2/12/2025 1:53:24 AM  Windows Malicious Software Removal Tool x64 - v5.132 (KB890830)                                            
+KB5051987 2/12/2025 12:52:28 AM 2025-02 Cumulative Update for Windows 11 Version 24H2 for x64-based Systems (KB5051987)                    
+KB5052978 2/12/2025 12:35:25 AM 2025-02 .NET 8.0.13 Update for x64 Client (KB5052978)                                                      
+          2/4/2025 3:24:03 AM   Dell, Inc. - Firmware - 0.1.22.0                                                                           
+          2/4/2025 3:24:01 AM   Intel - net - 23.90.0.2                                                                                    
+          2/3/2025 2:55:50 PM   Intel Corporation - Bluetooth - 23.90.0.8                                                                  
+          2/3/2025 2:55:46 PM   Intel - System - 2433.6.3.0                                                                                
+KB5050009 1/15/2025 6:59:40 AM  2025-01 Cumulative Update for Windows 11 Version 24H2 for x64-based Systems (KB5050009)                    
+KB5049622 1/15/2025 5:45:02 AM  2025-01 Cumulative Update for .NET Framework 3.5 and 4.8.1 for Windows 11, version 24H2 for x64 (KB5049622)
+KB890830  1/15/2025 5:17:34 AM  Windows Malicious Software Removal Tool x64 - v5.131 (KB890830)                                            
+KB5050525 1/15/2025 5:11:38 AM  2025-01 .NET 8.0.12 Security Update for x64 Client (KB5050525)                                             
+KB5007651 1/8/2025 2:13:24 AM   Update for Windows Security platform - KB5007651 (Version 10.0.27703.1006)                                 
+          1/7/2025 2:00:02 AM   Dell, Inc. - Firmware - 0.1.21.1                                                                           
+          1/3/2025 10:09:58 PM  9NF8H0H7WMLT-NVIDIACorp.NVIDIAControlPanel                                                                 
+          1/3/2025 10:09:21 PM  NVIDIA - Display - 32.0.15.5612                                                                            
+          1/2/2025 10:53:09 AM  Intel - Extension - 9.0.11703.48565                                                                        
+          12/29/2024 2:13:17 PM 9NVJQJBDKN97-DolbyLaboratories.DolbyDigitalPlusDecoderOEM                                                  
+KB5048667 12/11/2024 5:55:10 AM 2024-12 Cumulative Update for Windows 11 Version 24H2 for x64-based Systems (KB5048667)                    
+          12/4/2024 6:54:01 PM  Windows 11, version 24H2                                                                                   
