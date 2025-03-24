@@ -30,9 +30,9 @@ for any damage or issues arising from the use of this script.
 
 #>
 
-# Define Error Handling, Line Breaks, Initialize Output File & Progress Bar
+# Define Error Handling, Line Breaks, Default Output Encoding (UTF-8), Initialize Output File & Progress Bar
 
-$ErrorActionPreference = "Stop"; $NewLine = [System.Environment]::NewLine; $SystemInventory = @(); $Script:TaskCount = 0; $Script:TotalTasks = 15
+$ErrorActionPreference = "Stop"; $NewLine = [System.Environment]::NewLine; $OutputEncoding = [System.Text.Encoding]::UTF8; $SystemInventory = @(); $Script:TaskCount = 0; $Script:TotalTasks = 15
 
 # Check elevation status, halt if not running as admin.
 
@@ -373,38 +373,43 @@ function Get-BrowserInfo {
 # Event Log Activity
 
 function Get-EventLogHistory {
+    param(
+        [int]$DaysAgo = 1,                                  # Number of days to look back
+        [string[]]$LogNames = @('System', 'Application'),   # Logs to check
+        [int[]]$Levels = @(1, 2)                            # Event levels to retrieve (1 = Critical, 2 = Error)
+    )
+
     try {
-        # Define the time range (last 24 hours)
+        # Define the time range (last $DaysAgo days)
 
-        $startTime = (Get-Date).AddDays(-1)
+        $startTime = (Get-Date).AddDays(-$DaysAgo)
 
-        # Get Critical and Error events from the System and Application logs
-        
+        # Get Critical and Error events from specified logs
+
         $events = Get-WinEvent -FilterHashtable @{
-            LogName   = 'System', 'Application'
-            Level     = 1, 2  
+            LogName   = $LogNames
+            Level     = $Levels
             StartTime = $startTime
-        } 
-        
+        } -ErrorAction Stop
+
         # Output results
-                
-        $events | Select-Object LevelDisplayName, Id, TimeCreated, ProviderName, Message | Sort-Object TimeCreated, LevelDisplayName -Descending
+
+        $events | Select-Object LevelDisplayName, Id, TimeCreated, ProviderName, Message | 
+            Sort-Object TimeCreated, LevelDisplayName -Descending
     }
     catch {
         if ($_.Exception.Message -match "No events were found that match the specified selection criteria") {
-            Write-Output $NewLine
-            Write-Output "No Critical or Error events raised over the past 24 hours."
-            Write-Output $NewLine
+            Write-Output "No Critical or Error events raised over the past $DaysAgo days."
         }
         else {
-            throw "An error occurred while retrieving the event logs: $($_.Exception.Message)"
+            Write-Error "An error occurred while retrieving the event logs: $($_.Exception.Message)"
         }
     }
 }
 
 # Updates & Hotfixes 
   
-function Get-WindowsUpdateHistory {
+function Get-UpdateHistory {
     try {
         $Session = New-Object -ComObject Microsoft.Update.Session
         $Search  = $Session.CreateUpdateSearcher()
@@ -421,11 +426,11 @@ function Get-WindowsUpdateHistory {
                         'KB Number'   = [regex]::match($Update.Title, 'KB(\d+)').Value
                         'Installed'   = $Update.Date
                         'Title'       = $Update.Title
-                        'Description' = $Update.Description
+                #       'Description' = $Update.Description
                     }) | Out-Null
             } 
         } 
-        $Updates | Sort-Object Installed -Descending | Select-Object 'KB Number', Installed, Title 
+        $Updates
     }
     catch {
         throw "An error occurred while retrieving Windows update history: $($_.Exception.Message)"
@@ -538,7 +543,7 @@ $SystemInventory += "# Event Log Activity", $EventLogActivty | Out-String
 # Updates & Hotfixes 
 
 Update-Progress -Activity "Gathering system inventory" -Status "Updates & Hotfixes" -PercentComplete (($TaskCount / $TotalTasks) * 100)  
-$UpdateHistory = Get-WindowsUpdateHistory | Select-Object "KB Number", Installed, Title | Sort-Object Installed -Descending 
+$UpdateHistory = Get-UpdateHistory | Select-Object "KB Number", Installed, Title  
 $SystemInventory += "# Updates & Hotfixes", $UpdateHistory | Out-String
 
 # Save & Display Results
