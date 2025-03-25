@@ -550,6 +550,6 @@ $SystemInventory += "# Updates & Hotfixes", $UpdateHistory | Out-String
 
 Update-Progress -Activity "Gathering system inventory" -Status "Saving Results" -PercentComplete (($TaskCount / $TotalTasks) * 100) 
 $OutputFile = Join-Path $Env:USERPROFILE "Downloads\System Inventory - $($Env:COMPUTERNAME).txt"
-$SystemInventory | Out-File -FilePath $OutputFile -Encoding ascii
+$SystemInventory | Out-File -FilePath $OutputFile -Encoding UTF8
 Get-Content -Path $OutputFile
 Write-Host "Hard copy saved as" $OutputFile; Write-Host
