@@ -34,6 +34,7 @@ for any damage or issues arising from the use of this script.
 
 $ErrorActionPreference = "Stop"; $NewLine = [System.Environment]::NewLine; $OutputEncoding = [System.Text.Encoding]::UTF8; $SystemInventory = @(); 
 $Script:TaskCount = 0; $Script:TotalTasks = 15; $OutputFile = Join-Path $Env:USERPROFILE "Downloads\System Inventory - $($Env:COMPUTERNAME).txt"
+
 # Check elevation status, halt if not running as admin.
 
 function Initialize-Script {
