@@ -32,8 +32,8 @@ for any damage or issues arising from the use of this script.
 
 # Define Error Handling, Line Breaks, Default Output Encoding (UTF-8), Initialize Output File & Progress Bar
 
-$ErrorActionPreference = "Stop"; $NewLine = [System.Environment]::NewLine; $OutputEncoding = [System.Text.Encoding]::UTF8; $SystemInventory = @(); $Script:TaskCount = 0; $Script:TotalTasks = 15
-
+$ErrorActionPreference = "Stop"; $NewLine = [System.Environment]::NewLine; $OutputEncoding = [System.Text.Encoding]::UTF8; $SystemInventory = @(); 
+$Script:TaskCount = 0; $Script:TotalTasks = 15; $OutputFile = Join-Path $Env:USERPROFILE "Downloads\System Inventory - $($Env:COMPUTERNAME).txt"
 # Check elevation status, halt if not running as admin.
 
 function Initialize-Script {
@@ -549,7 +549,6 @@ $SystemInventory += "# Updates & Hotfixes", $UpdateHistory | Out-String
 # Save & Display Results
 
 Update-Progress -Activity "Gathering system inventory" -Status "Saving Results" -PercentComplete (($TaskCount / $TotalTasks) * 100) 
-$OutputFile = Join-Path $Env:USERPROFILE "Downloads\System Inventory - $($Env:COMPUTERNAME).txt"
 $SystemInventory | Out-File -FilePath $OutputFile -Encoding UTF8
 Get-Content -Path $OutputFile
 Write-Host "Hard copy saved as" $OutputFile; Write-Host
