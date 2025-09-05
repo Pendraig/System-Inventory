@@ -170,6 +170,11 @@ function Get-RolesAndFeatures {
             $RolesAndFeatures = Get-WindowsOptionalFeature -Online | Where-Object State -eq 'Enabled' | Select-Object FeatureName | Sort-Object FeatureName          
         }
         else { 
+            # Verify presence of Server Manager module, download & install if missing
+            if (-not (Get-Module -ListAvailable -Name ServerManager)) {
+                Write-Verbose "ServerManager module not found. Attempting to import..."
+                Import-Module ServerManager -ErrorAction Stop
+            }
             $FeatureLabel = "# Windows Server - Installed Server Roles"
             $RolesAndFeatures = Get-WindowsFeature | Where-Object InstallState -eq 'Installed' | Select-Object DisplayName             
         }
@@ -550,6 +555,6 @@ $SystemInventory += "# Updates & Hotfixes", $UpdateHistory | Out-String
 # Save & Display Results
 
 Update-Progress -Activity "Gathering system inventory" -Status "Saving Results" -PercentComplete (($TaskCount / $TotalTasks) * 100) 
-$SystemInventory | Out-File -FilePath $OutputFile -Encoding UTF8
+$SystemInventory | Out-File -FilePath $OutputFile -Encoding utf8
 Get-Content -Path $OutputFile
 Write-Host "Hard copy saved as" $OutputFile; Write-Host
